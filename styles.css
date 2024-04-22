@@ -187,9 +187,13 @@ section.especialidades .flex{
     margin: 15px 0;
 }
 
+section .flex img{
+    border-radius: 10%;
+}
+
 
 .sobre{
-    padding: 120gitpx 4%;
+    padding: 120px 4%;
 
 }
 
@@ -231,3 +235,58 @@ section .sobre .flex{
     margin: 0 5px;
     transition: .2s;
 }
+
+
+/*ESTILO PORTFOLIO*/
+
+.portfolio{
+    padding: 80px 4%;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+}
+
+.portfolio .flex{
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.img-port{
+    width: 360px;
+    height: 460px;
+    background-size: cover;
+    background-position: 100% 0%;
+    transition: 8s;
+    cursor: pointer;
+    border-radius: 50px;
+    position: relative;
+
+    
+}
+
+.img-port:hover{
+
+    background-position: 100% 100%;
+}
+
+.overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000000e0;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+    opacity: 0;
+    transition: .5s;
+}
+
+
+.overlay:hover{
+    opacity: 1;
+}
+
