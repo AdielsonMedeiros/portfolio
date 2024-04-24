@@ -107,8 +107,8 @@ header nav ul li{
 
 
 
-section .topo-do-site {
-    padding: 40px 4%;
+.topo-do-site {
+    padding: 80px 4%;
     
 
 }
@@ -154,8 +154,8 @@ section .topo-do-site .flex{
 }
 
 
-section.especialidades{
-    padding: 40px 4%;
+.especialidades{
+    padding: 80px 4%;
 }
 
 section.especialidades .flex{
@@ -224,7 +224,7 @@ section .sobre .flex{
 }
 
 
-.sobre .txt-sobre .btn-social button{
+.btn-social button{
     width: 60px;
     height: 60px;
     border-radius: 50% ;
@@ -340,3 +340,33 @@ form .btn-enviar input[type=submit]{
 
 
 
+/*estilo do rodapé */
+
+
+
+footer{
+    padding: 40px 4%;
+    box-shadow: 0 0 40px 10px #ffffff1d;
+}
+
+footer .flex{
+    justify-content: space-between;
+    
+}
+
+footer .line-footer{
+    padding: 20px 0;
+    
+}
+.borda{
+    border-top: 2px solid #00ff08;
+}
+
+footer .line-footer p i{
+    color: #00ff08;
+    font-size: 22px;
+}
+
+footer .line-footer p a{
+    color: #fff;
+}
