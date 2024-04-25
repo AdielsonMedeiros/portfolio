@@ -11,6 +11,65 @@
     <title>Adielson Medeiros Portfólio</title>
 </head>
 <body>
+
+    <div class="container">
+        <div class="bolhas">
+            <span style="--i:11"></span>
+            <span style="--i:17"></span>
+            <span style="--i:25"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:2"></span>
+            <span style="--i:28"></span>
+            <span style="--i:16"></span>
+            <span style="--i:22"></span>
+            <span style="--i:4"></span>
+            <span style="--i:13"></span>
+            <span style="--i:27"></span>
+            <span style="--i:17"></span>
+            <span style="--i:9"></span>
+            <span style="--i:15"></span>
+            <span style="--i:24"></span>
+            <span style="--i:12"></span>
+            <span style="--i:26"></span>
+            <span style="--i:11"></span>
+            <span style="--i:17"></span>
+            <span style="--i:25"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:2"></span>
+            <span style="--i:28"></span>
+            <span style="--i:16"></span>
+            <span style="--i:22"></span>
+            <span style="--i:4"></span>
+            <span style="--i:13"></span>
+            <span style="--i:27"></span>
+            <span style="--i:17"></span>
+            <span style="--i:9"></span>
+            <span style="--i:15"></span>
+            <span style="--i:24"></span>
+            <span style="--i:12"></span>
+            <span style="--i:26"></span>
+            <span style="--i:11"></span>
+            <span style="--i:17"></span>
+            <span style="--i:25"></span>
+            <span style="--i:14"></span>
+            <span style="--i:9"></span>
+            <span style="--i:2"></span>
+            <span style="--i:28"></span>
+            <span style="--i:16"></span>
+            <span style="--i:22"></span>
+            <span style="--i:4"></span>
+            <span style="--i:13"></span>
+            <span style="--i:27"></span>
+            <span style="--i:17"></span>
+            <span style="--i:9"></span>
+            <span style="--i:15"></span>
+            <span style="--i:24"></span>
+            <span style="--i:12"></span>
+            <span style="--i:26"></span>
+        </div>
+    </div>
     <header>
         <div class="interface">
             <div class="logo">
@@ -33,7 +92,11 @@
                 </a>
             </div><!--nav botoes -->
 
-            <div class="menu-mobile">
+            <div class="btn-abrir-menu" id="btn-menu">
+                <i class="bi bi-list"></i>
+            </div>
+
+            <div class="menu-mobile" id="menu-mobile">
                 <div class="btn-fechar">
                     <i class="bi bi-x-lg"></i>
                 </div>
@@ -48,6 +111,11 @@
             </nav>
 
             </div>
+
+            <div class="overlay-menu" id="overlay-menu">
+
+            </div>
+
         </div><!-- /header interface -->
     </header>
     <main>
@@ -87,7 +155,7 @@
                     </div>
                     <div class="especialidades-box">
                         <i class="bi bi-box-fill"></i>
-                        <h3>Blog</h3>
+                        <h3>Aplicativos</h3>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint incidunt fugiat nemo, asperiores aspernatur vel animi exercitationem ipsa, laboriosam commodi aliquam officiis tenetur dolorem et consectetur rerum laudantium doloribus tempore.</p>
                     </div>
                 </div>
@@ -106,13 +174,11 @@
 
                     <div class="txt-sobre">
                         <h2>MUITO PRAZER,<span>SOU ADIELSON MEDEIROS.</span></h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-                        Tenetur fugit provident libero, accusantium quo reiciendis sapiente voluptatibus labore placeat,
-                        repellendus maxime pariatur, vel corrupti aut sequi quos aliquam eum neque.</p>
+                        <p>Hello! I’m Adielson Medeiros, a Software Engineering student and specialist in front-end development.
+                        I started my journey in the world of programming in 2022, and since then, I’ve been honing my skills in HTML, CSS, JavaScript, and the ReactJS library.
+                        In addition, I’ve had the opportunity to explore other languages and tools.</p>
 
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                            Molestiae illum dolorum totam sit dicta! Alias, quaerat?
-                            Autem, perspiciatis exercitationem, deserunt similique consequuntur excepturi animi odio modi quibusdam maxime, iure enim.</p>
+                        <p>I’m passionate about programming and I’m improving my skills every day.</p>
                         
                         <div class="btn-social">
                             <a href="#"><button><i class="bi bi-facebook"></i></button></a>
@@ -135,20 +201,12 @@
                     <div class="img-port" style="background-image: url(img/Screenshot_20240422_150619_Chrome.jpg) ;" >
                         <div class="overlay">Projeto 1</div>
                     </div>
-
-
-
                     <div class="img-port" style="background-image: url(img/Screenshot_20240422_150804_biblia.jpg) ;">
                         <div class="overlay">Projeto 2</div>
                     </div>
-
-
-
-
                     <div class="img-port" style="background-image: url(img/Screenshot_20240422_150835_EletricCarApp.jpg) ;">
                         <div class="overlay">Projeto 3</div>
                     </div>
-
 
                 </div>
             </div>
@@ -158,15 +216,14 @@
         <section class="formulario">
             <div class="interface">
                 <h2 class="titulo">FALA <span>COMIGO. </span></h2>
-                <form action="">
-                    <input type="text" placeholder="Seu nome: " required>
-                    <input type="text" placeholder="Seu email: " required>
-                    <input type="text" placeholder="Seu Celular ou Whatsapp: ">
-                    <textarea name="" placeholder="Digite a sua mensagem" required></textarea>
+                <form  action="https://formspree.io/f/mvoedygq" method="POST">
+                    <input type="text" name="nome" placeholder="Seu nome: " required >
+                    <input type="text" name="_replyto" placeholder="Seu email: " required >
+                    <input type="text" name="celular" placeholder="Seu Celular ou Whatsapp: ">
+                    <textarea name="mensagem" placeholder="Digite a sua mensagem" required></textarea>
                     <div class="btn-enviar"><input type="submit" value="ENVIAR"></div>
                 </form>
             </div>
-
         </section>
 
         
@@ -197,5 +254,6 @@
 
         </div>
     </footer>
+    <script src="./index.js"></script>
 </body>
 </html>

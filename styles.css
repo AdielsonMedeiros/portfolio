@@ -5,11 +5,57 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
+    position: relative;
 }
 
 body{
     background-color: #000;
+    min-height: 100vh;
+    position: relative;
+}
+
+
+
+/*animação*/
+.container{
+    position: fixed;
+    width: 100%;
     height: 100vh;
+    overflow: hidden;
+}
+
+.bolhas{
+    position: absolute;
+    display: flex;
+}
+
+.bolhas span{
+    width: 30px;
+    height: 30px;
+    background: #e5ff00;
+    margin: 0 4px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 10px #e5ff0044,
+    0 0 50px #e5ff00,
+    0 0 100px #e5ff00;
+    animation: animar calc(300s / var(--i)) linear infinite;
+
+}
+
+@keyframes animar{
+    0%{
+        transform: translatey(100vh) scale(0);
+    }
+    100%{
+        transform: translatey(-10vh) scale(1);
+    }
+}
+
+.bolhas span:nth-of-type(even){
+    background: #2dc3ff;
+    box-shadow: 0 0 0 10px #2dc3ff44,
+    0 0 50px #2dc3ff,
+    0 0 100px #2dc3ff;
 }
 
 .interface{
@@ -17,11 +63,14 @@ body{
     margin: 0 auto;
 }
 
+/*fim da animaçao*/
+
 .flex {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 29px;
+    
 }
 
 
@@ -35,6 +84,7 @@ body{
     border-radius: 30px;
     cursor: pointer;
     transition: .2s;
+    
 }
 
 button:hover , form .btn-enviar input:hover[type=submit] {
@@ -104,6 +154,12 @@ header nav.menu-desktop ul li{
 }
 
 
+.btn-abrir-menu i{
+    color: #00ff08;
+    font-size: 40px;
+}
+
+
 
 .menu-mobile{
     background-color: #000;
@@ -112,8 +168,17 @@ header nav.menu-desktop ul li{
     top: 0;
     right: 0;
     z-index: 99999;
-    width: 70%;
+    width: 0%;
+    overflow: hidden;
+    transition: .5s;
+}
 
+.menu-mobile.abrir-menu{
+    width: 70%;
+}
+
+.menu-mobile.abrir-menu ~ .overlay-menu{
+    display: block;
 }
 
 .menu-mobile nav ul{
@@ -127,12 +192,23 @@ header nav.menu-desktop ul li{
     font-weight: 300;
     padding: 20px 8%;
     display: block;
-    
+    overflow: hidden;
 }
 
 .menu-mobile nav ul li a:hover{
     background-color: #00ff08;
     color: #000;
+}
+
+.overlay-menu{
+    background-color: #000000a7;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 88888;
+    display: none;
 }
 
 .menu-mobile .btn-fechar{
@@ -170,6 +246,7 @@ section .topo-do-site .flex{
 
 .topo-do-site .txt-topo-site span{
     color: #00ff08;
+    position: relative;
     
 }
 
@@ -231,6 +308,7 @@ section.especialidades .flex{
 
 section .flex img{
     border-radius: 10%;
+    position: relative;
 }
 
 
@@ -276,6 +354,7 @@ section .sobre .flex{
     cursor: pointer;
     margin: 0 5px;
     transition: .2s;
+    margin-top: 60px;
 }
 
 
@@ -304,8 +383,10 @@ section .sobre .flex{
     
 }
 
-.img-port:hover{
 
+
+
+.img-port:hover{
     background-position: 100% 100%;
 }
 
@@ -377,7 +458,7 @@ form .btn-enviar input[type=submit]{
     color: #000;
     font-weight: 700;
     cursor: pointer;
-    transition: .2s;
+    transition: .2s
 }
 
 
@@ -492,7 +573,20 @@ footer .line-footer p a{
         text-align: center;
     }
 
+    
 
 
+
+    
+}
+
+
+::-webkit-scrollbar{
+    width: 10px;
+}
+
+::-webkit-scrollbar-thumb{
+    width: 10px;
+    background-color: green;
     
 }
