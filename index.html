@@ -71,24 +71,27 @@
         </div>
     </div>
     <header>
-        <div class="interface">
+        <div class="interface" id="inicio">
             <div class="logo">
                 <a href="">
                     <img src="/img/AM__1___1_-removebg-preview.png" alt="">
                 </a>
             </div>
 
-            <nav class="menu-desktop">
-                <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                </ul>
-            </nav>
+            <div class="music">
+                <h2 class="title">Music name</h2>
+                <div class="player">
+                    <audio src=""></audio>
+                    <div class="btns">
+                        <span class="prev"><ion-icon name="play-back-outline"></ion-icon></span>
+                        <span class="playPause"><ion-icon name="play-outline"></ion-icon></span>
+                        <span class="next"><ion-icon name="play-forward-outline"></ion-icon></span>
+                    </div>
+                </div>
+            </div>
             <div class="btn-contato">
                 <a href="#">
-                    <button>Contato</button>
+                    <button>DOWNLOAD CV <i class="bi bi-download"></i></button>
                 </a>
             </div><!--nav botoes -->
 
@@ -102,11 +105,11 @@
                 </div>
             <nav>
                 <ul>
-                    <li><a href="#">Inicio</a></li>
-                    <li><a href="#">Especialidades</a></li>
-                    <li><a href="#">Sobre</a></li>
-                    <li><a href="#">Projetos</a></li>
-                    <li><a href="#">Contato</a></li>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#especialidade">Especialidades</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#projetos">Projetos</a></li>
+                    <li><a href="#contatos">Contato</a></li>
                 </ul>
             </nav>
 
@@ -124,11 +127,12 @@
                 <div class="flex">
                     <div class="txt-topo-site">
                         <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL <span>.</span></h1>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi veniam debitis nam voluptates perferendis reprehenderit voluptatem corrupti blanditiis quidem id,
-                            perspiciatis nihil eius neque numquam tempore! Libero cupiditate nostrum molestiae.</p>
-                        <div class="btn-contato">
-                            <a href="#">
-                                <button>Entre em contato</button>
+                        <p>In an increasingly connected world, I believe in the power of ideas and their transformation into innovative digital solutions.
+                            My goal is to bring ideas to life, turning them into unique and engaging digital experiences.
+                            Whether it’s a website, a mobile application, or an e-commerce solution.</p>
+                        <div class="btn-contato-topo">
+                            <a href="https://wa.me/5521968520520">
+                                <button> <i class="bi bi-whatsapp"></i>  Entre em contato</button>
                             </a>
                         </div>
                     </div>
@@ -139,7 +143,7 @@
             </div>
         </section>
 
-        <section class="especialidades">
+        <section class="especialidades" id="especialidade">
             <div class="interface">
                 <h2 class="titulo">MINHAS <span>ESPECIALIDADES.</span></h2>
                 <div class="flex">
@@ -162,7 +166,7 @@
             </div>
         </section>
 
-        <section class="sobre">
+        <section class="sobre" id="sobre">
             <div class="interface">
                 <div class="flex">
 
@@ -172,7 +176,7 @@
                     </div>
 
 
-                    <div class="txt-sobre">
+                    <div class="txt-sobre" id="sobre">
                         <h2>MUITO PRAZER,<span>SOU ADIELSON MEDEIROS.</span></h2>
                         <p>Hello! I’m Adielson Medeiros, a Software Engineering student and specialist in front-end development.
                         I started my journey in the world of programming in 2022, and since then, I’ve been honing my skills in HTML, CSS, JavaScript, and the ReactJS library.
@@ -181,9 +185,9 @@
                         <p>I’m passionate about programming and I’m improving my skills every day.</p>
                         
                         <div class="btn-social">
-                            <a href="#"><button><i class="bi bi-facebook"></i></button></a>
-                            <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                            <a href="#"><button><i class="bi bi-twitter"></i></button></a>
+                            <a href="https://www.linkedin.com/in/adielson-medeiros-671a68219/"><button><i class="bi bi-linkedin"></i></button></a>
+                            <a href="https://github.com/AdielsonMedeiros"><button><i class="bi bi-github"></i></button></a>
+                            <a href="mailto:medeirosadielson@gmail.com"><button><i class="bi bi-envelope"></i></button></a>
                         </div>
                     </div>
 
@@ -192,7 +196,7 @@
             </div>
         </section>
 
-        <section class="portfolio">
+        <section class="portfolio" id="projetos">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTIFÓLIO</span></h2>
                 <div class="flex">
@@ -208,9 +212,31 @@
                         <div class="overlay">Projeto 3</div>
                     </div>
 
+                    
+
+                </div>
+            </div>
+            <div class="interface">
+                
+                <div class="flex">
+
+
+                    <div class="img-port" style="background-image: url(img/Screenshot_20240422_150619_Chrome.jpg) ;" >
+                        <div class="overlay">Projeto 4</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(img/Screenshot_20240422_150804_biblia.jpg) ;">
+                        <div class="overlay">Projeto 5</div>
+                    </div>
+                    <div class="img-port" style="background-image: url(img/Screenshot_20240422_150835_EletricCarApp.jpg) ;">
+                        <div class="overlay">Projeto 6</div>
+                    </div>
+
+                    
+
                 </div>
             </div>
         </section>
+
 
 
         <section class="formulario">
@@ -233,16 +259,16 @@
 
     <footer>
 
-        <div class="interface">
+        <div class="interface" id="contatos">
             <div class="line-footer">
                 <div class="flex">
                     <div class="logo-footer">
                         <img src="img/AM__1___1_-removebg-preview.png" alt="llogo do adielson medeiros">
                     </div>
                     <div class="btn-social">
-                        <a href="#"><button><i class="bi bi-facebook"></i></button></a>
-                        <a href="#"><button><i class="bi bi-instagram"></i></button></a>
-                        <a href="#"><button><i class="bi bi-twitter"></i></button></a>
+                        <a href="https://www.linkedin.com/in/adielson-medeiros-671a68219/"><button><i class="bi bi-linkedin"></i></button></a>
+                        <a href="https://github.com/AdielsonMedeiros"><button><i class="bi bi-github"></i></button></a>
+                        <a href="mailto:medeirosadielson@gmail.com"><button><i class="bi bi-envelope"></i></button></a>
                     </div>
                 </div>
             </div><!--linefooter fechando-->
@@ -255,5 +281,7 @@
         </div>
     </footer>
     <script src="./index.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>

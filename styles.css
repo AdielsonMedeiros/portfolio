@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 *{
     margin: 0;
@@ -75,15 +75,36 @@ body{
 
 
 
-.btn-contato button{
+.btn-contato button, .btn-contato-topo button{
     padding: 10px 40px;
-    font-size: 18px;
+    font-size: 15px;
+    color: #ddd;
     font-weight: 600;
-    background-color: #00ff08;
+    background-color: transparent;
     border: 0;
     border-radius: 30px;
     cursor: pointer;
     transition: .2s;
+    
+    
+}
+
+.btn-contato-topo button{
+    background-color: transparent;
+    color: #fff;
+    box-shadow: 0px 0px 8px #00ff08;
+
+}
+
+.btn-contato button i{
+    font-size: 15px;
+    padding: 8px;
+    
+}
+.btn-contato-topo a button i{
+    font-size: 15px;
+    padding: 8px;
+    
     
 }
 
@@ -102,6 +123,80 @@ header .interface .logo a:hover img {
     filter: drop-shadow(0px 0px 20px #00ff08);
     transform: scale(1.05);
 }
+
+/*music icon */
+
+.music{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+
+.title{
+    font-weight: 700;
+    font-size: 12px;
+    color: #6accf3fd;
+    text-align: center;
+    margin-bottom:10px;
+}
+
+.player{
+    position: relative;
+    width: 125px;
+    min-height: 20px;
+    background-color: transparent;
+    border: none;
+    border-radius: 40px;
+    padding: 10px 15px;
+    
+}
+
+.btns{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.btns span{
+    position: relative;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: #6accf3fd;
+    box-shadow: inset 0 -3px 3px rgba(0,0,0,0.1),
+                0 3px 5px rgba(0,0,0,0.1),
+                0 5px 8px rgba(0,0,0,0.1);
+}
+.btns span:active,
+.btns span.active{
+    color: #6accf3fd;
+    box-shadow: inset 0 -4px 3px rgba(0,0,0,0.025),
+                inset 0 3px 5px rgba(0,0,0,0.15);
+}
+
+.btns span.playPause{
+    width: 25px;
+    height: 25px;
+}
+
+.btns span ion-icon{
+    font-size: 1em;
+}
+
+.btns span.playPause ion-icon{
+    font-size: 2em;
+}
+
+/*final do player*/
 
 
 
@@ -174,7 +269,7 @@ header nav.menu-desktop ul li{
 }
 
 .menu-mobile.abrir-menu{
-    width: 70%;
+    width: 45%;
 }
 
 .menu-mobile.abrir-menu ~ .overlay-menu{
@@ -305,6 +400,8 @@ section.especialidades .flex{
     font-size: 28px;
     margin: 15px 0;
 }
+
+
 
 section .flex img{
     border-radius: 10%;
@@ -458,7 +555,8 @@ form .btn-enviar input[type=submit]{
     color: #000;
     font-weight: 700;
     cursor: pointer;
-    transition: .2s
+    transition: .2s;
+    
 }
 
 
