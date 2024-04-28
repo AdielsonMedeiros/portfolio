@@ -32,13 +32,13 @@ body{
 .bolhas span{
     width: 30px;
     height: 30px;
-    background: #e5ff00;
+    background: #ff0000;
     margin: 0 4px;
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #e5ff0044,
-    0 0 50px #e5ff00,
-    0 0 100px #e5ff00;
-    animation: animar calc(300s / var(--i)) linear infinite;
+    box-shadow: 0 0 0 10px #ff000044,
+    0 0 50px #ff0000,
+    0 0 100px #ff0000;
+    animation: animar calc(1000s / var(--i)) linear infinite;
 
 }
 
@@ -92,7 +92,7 @@ body{
 .btn-contato-topo button{
     background-color: transparent;
     color: #fff;
-    box-shadow: 0px 0px 8px #00ff08;
+    box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
 
 }
 
@@ -109,7 +109,7 @@ body{
 }
 
 button:hover , form .btn-enviar input:hover[type=submit] {
-    box-shadow: 0px 0px 8px #00ff08;
+    box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
     transform: scale(1.05);
     transition: .2s;
 }
@@ -137,7 +137,7 @@ header .interface .logo a:hover img {
 .title{
     font-weight: 700;
     font-size: 12px;
-    color: #6accf3fd;
+    color: hsl(250, 66%, 75%);
     text-align: center;
     margin-bottom:10px;
 }
@@ -171,14 +171,14 @@ header .interface .logo a:hover img {
     justify-content: center;
     align-items: center;
     cursor: pointer;
-    color: #6accf3fd;
+    color: hsl(250, 66%, 75%);
     box-shadow: inset 0 -3px 3px rgba(0,0,0,0.1),
                 0 3px 5px rgba(0,0,0,0.1),
                 0 5px 8px rgba(0,0,0,0.1);
 }
 .btns span:active,
 .btns span.active{
-    color: #6accf3fd;
+    color: hsl(250, 66%, 75%);
     box-shadow: inset 0 -4px 3px rgba(0,0,0,0.025),
                 inset 0 3px 5px rgba(0,0,0,0.15);
 }
@@ -209,7 +209,7 @@ h2.titulo{
 }
 
 h2.titulo span{
-    color: #00ff08;
+    color: hsl(250, 66%, 75%);
 }
 
 
@@ -250,7 +250,7 @@ header nav.menu-desktop ul li{
 
 
 .btn-abrir-menu i{
-    color: #00ff08;
+    color: hsl(250, 66%, 75%);
     font-size: 40px;
 }
 
@@ -291,7 +291,7 @@ header nav.menu-desktop ul li{
 }
 
 .menu-mobile nav ul li a:hover{
-    background-color: #00ff08;
+    background-color: hsl(250, 66%, 75%);
     color: #000;
 }
 
@@ -311,7 +311,7 @@ header nav.menu-desktop ul li{
 }
 
 .menu-mobile .btn-fechar i{
-    color: #00ff08;
+    color: hsl(250, 66%, 75%);
     font-size: 30px;
     
 }
@@ -340,7 +340,7 @@ section .topo-do-site .flex{
 }
 
 .topo-do-site .txt-topo-site span{
-    color: #00ff08;
+    color: hsl(250, 66%, 75%);
     position: relative;
     
 }
@@ -393,7 +393,7 @@ section.especialidades .flex{
 
 .especialidades .especialidades-box i{
     font-size: 70px;
-    color:#00ff08;
+    color:hsl(250, 66%, 75%);
 }
 
 .especialidades .especialidades-box h3{
@@ -431,7 +431,7 @@ section .sobre .flex{
 }
 
 .sobre .txt-sobre h2 span{
-    color: #00ff08;
+    color: hsl(250, 66%, 75%);
     display: block;
 }
 
@@ -446,7 +446,7 @@ section .sobre .flex{
     height: 60px;
     border-radius: 50% ;
     border: none;
-    background-color: #00ff08;
+    background-color: hsl(250, 66%, 75%);
     font-size: 22px;
     cursor: pointer;
     margin: 0 5px;
@@ -551,7 +551,7 @@ form .btn-enviar{
 
 form .btn-enviar input[type=submit]{
     width: 120px;
-    background-color: #00ff08;
+    background-color: hsl(250, 66%, 75%);
     color: #000;
     font-weight: 700;
     cursor: pointer;
@@ -580,11 +580,11 @@ footer .line-footer{
     
 }
 .borda{
-    border-top: 2px solid #00ff08;
+    border-top: 2px solid hsl(250, 66%, 75%);
 }
 
 footer .line-footer p i{
-    color: #00ff08;
+    color:hsl(250, 66%, 75%);
     font-size: 22px;
 }
 
@@ -685,6 +685,6 @@ footer .line-footer p a{
 
 ::-webkit-scrollbar-thumb{
     width: 10px;
-    background-color: green;
+    background-color: hsl(250, 66%, 75%);
     
 }
