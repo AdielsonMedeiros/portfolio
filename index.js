@@ -28,8 +28,18 @@ const songList = [
 
     },
     {
+        path: "./msc/ComoTudoDeveSer.mp3",
+        songName: "ComoTudoDeveSer",
+
+    },
+    {
         path: "./msc/redbone.mp3",
         songName: "redbone",
+
+    },
+    {
+        path: "./msc/LittleDarkAge.mp3",
+        songName: "LittleDarkAge",
 
     },
 ];
