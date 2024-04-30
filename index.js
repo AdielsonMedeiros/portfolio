@@ -42,6 +42,16 @@ const songList = [
         songName: "LittleDarkAge",
 
     },
+    {
+        path: "./msc/MidnightCity.mp3",
+        songName: "MidnightCity",
+
+    },
+    {
+        path: "./msc/SultansOfSwing.mp3",
+        songName: "SultansOfSwing",
+
+    },
 ];
 
 let song_Playing = false;
