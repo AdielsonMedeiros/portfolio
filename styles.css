@@ -196,6 +196,13 @@ header .interface .logo a:hover img {
     font-size: 2em;
 }
 
+.btns span ion-icon:hover{
+    transform: scale(1.40);
+    
+
+
+}
+
 /*final do player*/
 
 
