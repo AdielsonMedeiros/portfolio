@@ -259,6 +259,11 @@ header nav.menu-desktop ul li{
 .btn-abrir-menu i{
     color: hsl(250, 66%, 75%);
     font-size: 40px;
+    cursor: pointer;
+}
+
+.btn-abrir-menu:hover{
+    transform: scale(1.1);
 }
 
 
@@ -315,6 +320,7 @@ header nav.menu-desktop ul li{
 
 .menu-mobile .btn-fechar{
     padding: 20px 5%;
+    cursor: pointer;
 }
 
 .menu-mobile .btn-fechar i{
