@@ -18,6 +18,11 @@ const songList = [
 
     },
     {
+        path: "./msc/LiveInTheSpirit.mp3",
+        songName: "LiveInTheSpirit",
+
+    },
+    {
         path: "./msc/skyfall.mp3",
         songName: "skyfall",
 
@@ -52,6 +57,12 @@ const songList = [
         songName: "SultansOfSwing",
 
     },
+    {
+        path: "./msc/Consagração.mp3",
+        songName: "Consagração",
+
+    },
+    
 ];
 
 let song_Playing = false;
