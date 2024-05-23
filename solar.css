@@ -296,11 +296,14 @@
     }
   }
   
+  
   .neptune-outline-1 {
     height: 620px;
     width: 620px;
   }
   
+
+  /*COMEÇO DA RESPONSIVIDADE PARA MOBILE*/
   
   @media screen and (max-width: 1020px) {
     .solar {

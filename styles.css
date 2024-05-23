@@ -419,6 +419,17 @@ section.especialidades .flex{
 section .flex img{
     border-radius: 10%;
     position: relative;
+    animation: flutuar 4s ease-in-out infinite alternate;
+}
+
+@keyframes flutuar {
+    0%{
+        top: 0;
+
+    }
+    100%{
+        top: 50px;
+    }
 }
 
 
