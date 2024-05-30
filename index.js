@@ -149,5 +149,9 @@ overlay.addEventListener('click', () => {
     menu.classList.remove('abrir-menu')
 })
 
-// form
+ScrollReveal().reveal('.interface', {
+    duration: 3000,
+    reset:true
+
+});
 
