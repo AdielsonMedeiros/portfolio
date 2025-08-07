@@ -703,6 +703,8 @@ footer .line-footer p a{
         gap: 60px;
     }
 
+
+
     footer .flex{
         flex-direction: column;
         gap: 30px;
@@ -712,21 +714,28 @@ footer .line-footer p a{
         text-align: center;
     }
 
-}
-
-
-.btn-up {
+    .btn-up{
 
     position: fixed;
-    bottom: 100px;
-    right: 30px;
+    bottom: 230px;
+    right: 10px;
     z-index: 99;
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s, visibility 0.4s;
     border: none;
     background-color: transparent;
+    }
+
+    .btn-up img{
+        
+        width: 50px;
+    }
+
 }
+
+
+
 
 
 .btn-up.show {
