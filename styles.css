@@ -633,6 +633,50 @@ footer .line-footer p a{
     color: #fff;
 }
 
+.btn-up{
+
+    position: fixed;
+    bottom: 200px;
+    right: 20px;
+    z-index: 99;
+    
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s, visibility 0.4s;
+    border: none;
+    background-color: transparent;
+    }
+
+
+
+
+
+
+
+.btn-up.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.btn-up img{
+    max-width: 74px;
+    transition: transform 0.4s;
+}
+
+
+.btn-up img:hover {
+    transform: scale(1.2);
+    filter: drop-shadow(0 0 8px hsl(250, 66%, 75%)); 
+}
+
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
+
+
 
 @media screen and (max-width: 1020px) {
     .flex{
@@ -718,7 +762,7 @@ footer .line-footer p a{
 
     position: fixed;
     bottom: 230px;
-    right: 10px;
+    right: 20px;
     z-index: 99;
     opacity: 0;
     visibility: hidden;
@@ -735,36 +779,6 @@ footer .line-footer p a{
 }
 
 
-
-
-
-.btn-up.show {
-    opacity: 1;
-    visibility: visible;
-}
-
-
-.btn-up img {
-    max-width: 74px;
-    transition: transform 0.4s;
-}
-
-
-.btn-up img:hover {
-    transform: scale(1.2);
-    filter: drop-shadow(0 0 8px hsl(250, 66%, 75%)); 
-}
-
-
-a {
-    cursor: pointer;
-    text-decoration: none;
-}
-
-a {
-    cursor: pointer;
-    text-decoration: none;
-}
 
 
 
