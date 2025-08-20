@@ -124,7 +124,7 @@ next.addEventListener("click", nextSong);
 downloadCv.addEventListener('click', function(event) {
     event.preventDefault();
 
-    fetch('./cv').then(function(t) {
+    fetch('./cv/CV - Adielson Medeiros dos Santos.pdf').then(function(t) {
         return t.blob().then((b)=>{
             let a = document.createElement("a");
             a.href = URL.createObjectURL(b);
