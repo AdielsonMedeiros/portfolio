@@ -128,7 +128,7 @@ downloadCv.addEventListener('click', function(event) {
         return t.blob().then((b)=>{
             let a = document.createElement("a");
             a.href = URL.createObjectURL(b);
-            a.setAttribute("download", "AdielsonCV.pdf");
+            a.setAttribute("download", "/cv/CV - Adielson Medeiros dos Santos.pdf");
             a.click();
         }
         );
