@@ -25,6 +25,17 @@ body{
     position: relative;
 }
 
+/* Adicione isso ao seu arquivo CSS principal */
+
+#codigoCanvas {
+    position: fixed; /* Fica fixo na tela, mesmo com rolagem */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Joga o canvas para trás de todo o conteúdo */
+}
+
 
 
 /*animação*/

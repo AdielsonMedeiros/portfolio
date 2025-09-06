@@ -119,7 +119,7 @@ function nextSong(){
 }
 next.addEventListener("click", nextSong);
 
-/* download do cv */
+
 
 downloadCv.addEventListener('click', function(event) {
     event.preventDefault();
@@ -156,27 +156,27 @@ ScrollReveal().reveal('.interface', {
 });
 
 
-// 1. Seleciona o elemento do botão no HTML
+
 const btnUp = document.querySelector('.btn-up');
 
-// 2. Cria a função que será executada a cada rolagem da tela
-function checkScrollPosition() {
-  // Variáveis para o cálculo
-  const windowHeight = window.innerHeight; // Altura da janela visível
-  const scrollY = window.scrollY; // O quanto já foi rolado para baixo
-  const bodyHeight = document.body.offsetHeight; // Altura total do corpo da página
 
-  // 3. A condição para saber se chegou ao final
-  // (com uma pequena tolerância de 1px para garantir)
+function checkScrollPosition() {
+  
+  const windowHeight = window.innerHeight; 
+  const scrollY = window.scrollY; 
+  const bodyHeight = document.body.offsetHeight; 
+
+  
+  
   if (windowHeight + scrollY >= bodyHeight - 1) {
-    // Se chegou ao final, adiciona a classe 'show' para mostrar o botão
+    
     btnUp.classList.add('show');
   } else {
-    // Se não, remove a classe 'show' para esconder o botão
+    
     btnUp.classList.remove('show');
   }
 }
 
-// 4. Adiciona o "ouvinte" de evento de rolagem
+
 window.addEventListener('scroll', checkScrollPosition);
 
