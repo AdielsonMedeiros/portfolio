@@ -1,10 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
-
 html{
     scroll-behavior: smooth;
 }
-
 
 *{
     margin: 0;
@@ -16,86 +14,88 @@ html{
     outline: 0;
 }
 
-
-
-
 body{
     background-color: #000;
     min-height: 100vh;
     position: relative;
 }
 
-/* Adicione isso ao seu arquivo CSS principal */
 
 #codigoCanvas {
-    position: fixed; /* Fica fixo na tela, mesmo com rolagem */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Joga o canvas para trás de todo o conteúdo */
+    z-index: -1;
 }
 
 
 
-/*animação*/
 .container{
     position: fixed;
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    z-index: -1; 
 }
 
 .bolhas{
     position: absolute;
-    display: flex;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
 }
 
 .bolhas span{
-    width: 30px;
-    height: 30px;
-    background: #ff0000;
-    margin: 0 4px;
+    position: absolute; 
+    width: 3px;   
+    height: 3px;  
     border-radius: 50%;
-    box-shadow: 0 0 0 10px #ff000044,
-    0 0 50px #ff0000,
-    0 0 100px #ff0000;
-    animation: animar calc(1000s / var(--i)) linear infinite;
-
-}
-
-@keyframes animar{
-    0%{
-        transform: translatey(100vh) scale(0);
-    }
-    100%{
-        transform: translatey(-10vh) scale(1);
-    }
+    background: #ff0000; 
+    box-shadow: 0 0 0 4px #ff000044,
+                0 0 15px #ff0000,
+                0 0 30px #ff0000;
+    bottom: 0;
+    opacity: 0;
+    animation: animar-estrelas linear infinite; 
 }
 
 .bolhas span:nth-of-type(even){
     background: #2dc3ff;
-    box-shadow: 0 0 0 10px #2dc3ff44,
-    0 0 50px #2dc3ff,
-    0 0 100px #2dc3ff;
+    box-shadow: 0 0 0 4px #2dc3ff44,
+                0 0 15px #2dc3ff,
+                0 0 30px #2dc3ff;
 }
+
+@keyframes animar-estrelas{
+    0%{
+        transform: translateY(0) scale(0.5);
+        opacity: 0;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    100%{
+        transform: translateY(-100vh) scale(1.2);
+        opacity: 0;
+    }
+}
+
+
 
 .interface{
     max-width: 1280px;
     margin: 0 auto;
 }
 
-/*fim da animaçao*/
-
 .flex {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 29px;
-    
 }
-
-
 
 .btn-contato button, .btn-contato-topo button{
     padding: 10px 40px;
@@ -107,38 +107,38 @@ body{
     border-radius: 30px;
     cursor: pointer;
     transition: .2s;
-    
-    
 }
 
 .btn-contato-topo button{
     background-color: transparent;
     color: #fff;
     box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
-
 }
 
 .btn-contato button i{
     font-size: 15px;
     padding: 8px;
-    
 }
+
 .btn-contato-topo a button i{
     font-size: 15px;
     padding: 8px;
-    
-    
 }
 
-button:hover , form .btn-enviar input:hover[type=submit] {
+button:hover, 
+form .btn-enviar input:hover[type=submit],
+.btn-social button:hover {
     box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
     transform: scale(1.05);
-    transition: .2s;
+}
+
+button, form .btn-enviar input[type=submit] {
+    transition: transform 0.2s, box-shadow 0.2s;
 }
 
 header .interface .logo a img {
     filter: blur(0);
-    transition: .2s; /* para uma transição suave */
+    transition: .2s;
 }
 
 header .interface .logo a:hover img {
@@ -146,14 +146,12 @@ header .interface .logo a:hover img {
     transform: scale(1.05);
 }
 
-/*music icon */
 
 .music{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    
 }
 
 .title{
@@ -172,7 +170,6 @@ header .interface .logo a:hover img {
     border: none;
     border-radius: 40px;
     padding: 10px 15px;
-    
 }
 
 .btns{
@@ -198,6 +195,7 @@ header .interface .logo a:hover img {
                 0 3px 5px rgba(0,0,0,0.1),
                 0 5px 8px rgba(0,0,0,0.1);
 }
+
 .btns span:active,
 .btns span.active{
     color: hsl(250, 66%, 75%);
@@ -220,13 +218,7 @@ header .interface .logo a:hover img {
 
 .btns span ion-icon:hover{
     transform: scale(1.40);
-    
-
-
 }
-
-/*final do player*/
-
 
 
 h2.titulo{
@@ -234,38 +226,32 @@ h2.titulo{
     font-size: 38px;
     text-align: center;
     margin-top: 80px;
-
 }
 
 h2.titulo span{
     color: hsl(250, 66%, 75%);
 }
 
-
 header{
     padding: 40px 4%;
-
-
 }
 
 header > .interface{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
 }
 
 header a{
     color: #7d7d7d;
     text-decoration: none;
     display: inline-block;
-
 }
+
 header nav.menu-desktop a:hover{
     color: #fff;
     transform: scale(1.05);
     transition: .2s;
-
 }
 
 header nav ul{
@@ -277,7 +263,6 @@ header nav.menu-desktop ul li{
     padding: 0 40px;
 }
 
-
 .btn-abrir-menu i{
     color: hsl(250, 66%, 75%);
     font-size: 40px;
@@ -287,8 +272,6 @@ header nav.menu-desktop ul li{
 .btn-abrir-menu:hover{
     transform: scale(1.1);
 }
-
-
 
 .menu-mobile{
     background-color: #000;
@@ -312,7 +295,6 @@ header nav.menu-desktop ul li{
 
 .menu-mobile nav ul{
     text-align: right;
-
 }
 
 .menu-mobile nav ul li a{
@@ -348,17 +330,10 @@ header nav.menu-desktop ul li{
 .menu-mobile .btn-fechar i{
     color: hsl(250, 66%, 75%);
     font-size: 30px;
-    
 }
-
-
-
-
 
 .topo-do-site {
     padding: 80px 4%;
-    
-
 }
 
 section .topo-do-site .flex{
@@ -366,7 +341,6 @@ section .topo-do-site .flex{
     justify-content: center;
     gap: 100px;
 }
-
 
 .topo-do-site h1{
     color: #fff;
@@ -377,7 +351,6 @@ section .topo-do-site .flex{
 .topo-do-site .txt-topo-site span{
     color: hsl(250, 66%, 75%);
     position: relative;
-    
 }
 
 .topo-do-site p{
@@ -391,17 +364,14 @@ section .topo-do-site .flex{
     border-radius: 42%;
 }
 
-
 @keyframes flutuar {
     0%{
         top: 0;
-
     }
     100%{
-        top: 30px;
+        top: 50px;
     }
 }
-
 
 .especialidades{
     padding: 80px 4%;
@@ -410,7 +380,6 @@ section .topo-do-site .flex{
 section.especialidades .flex{
     gap: 60px;
 }
-
 
 .especialidades .especialidades-box{
     color: #fff;
@@ -425,7 +394,6 @@ section.especialidades .flex{
     box-shadow: 0 0 20px #ffffff73;
 }
 
-
 .especialidades .especialidades-box i{
     font-size: 70px;
     color:hsl(250, 66%, 75%);
@@ -436,34 +404,19 @@ section.especialidades .flex{
     margin: 15px 0;
 }
 
-
-
 section .flex img{
     border-radius: 10%;
     position: relative;
     animation: flutuar 4s ease-in-out infinite alternate;
 }
 
-@keyframes flutuar {
-    0%{
-        top: 0;
-
-    }
-    100%{
-        top: 50px;
-    }
-}
-
-
 .sobre{
     padding: 120px 4%;
-
 }
 
 section .sobre .flex{
     align-items: center;
     gap: 60px;
-    
 }
 
 .sobre .txt-sobre{
@@ -486,7 +439,6 @@ section .sobre .flex{
     text-align: justify;
 }
 
-
 .btn-social button{
     width: 60px;
     height: 60px;
@@ -500,8 +452,6 @@ section .sobre .flex{
     margin-top: 60px;
 }
 
-
-/*ESTILO PORTFOLIO*/
 
 .portfolio{
     padding: 80px 4%;
@@ -518,16 +468,11 @@ section .sobre .flex{
     height: 460px;
     background-size: cover;
     background-position: 100% 0%;
-    transition: 8s;
+    transition: background-position 2.5s ease-in-out;
     cursor: pointer;
     border-radius: 50px;
     position: relative;
-
-    
 }
-
-
-
 
 .img-port:hover{
     background-position: 100% 100%;
@@ -551,15 +496,12 @@ section .sobre .flex{
     transition: .5s;
 }
 
-
 .overlay:hover{
     opacity: 1;
 }
 
-
 .formulario{
     padding: 80px 4%;
-
 }
 
 form{
@@ -588,12 +530,10 @@ form textarea{
     max-height: 300px;
 }
 
-
 form .btn-enviar{
     margin-top: 20px;
     text-align: center;
 }
-
 
 form .btn-enviar input[type=submit]{
     width: 120px;
@@ -602,13 +542,7 @@ form .btn-enviar input[type=submit]{
     font-weight: 700;
     cursor: pointer;
     transition: .2s;
-    
 }
-
-
-
-/*estilo do rodapé */
-
 
 
 footer{
@@ -618,18 +552,15 @@ footer{
 
 footer .flex{
     justify-content: space-between;
-    
 }
 
 footer .line-footer{
     padding: 20px 0;
-    
 }
 
 footer .line-footer .logo-footer img{
     margin-top: 80px;
 }
-
 
 .borda{
     border-top: 2px solid hsl(250, 66%, 75%);
@@ -645,49 +576,36 @@ footer .line-footer p a{
 }
 
 .btn-up{
-
     position: fixed;
     bottom: 200px;
     right: 20px;
     z-index: 99;
-    
     opacity: 0;
     visibility: hidden;
     transition: opacity 0.4s, visibility 0.4s;
     border: none;
     background-color: transparent;
-    }
-
-
-
-
-
-
+}
 
 .btn-up.show {
     opacity: 1;
     visibility: visible;
 }
 
-
 .btn-up img{
     max-width: 74px;
     transition: transform 0.4s;
 }
-
 
 .btn-up img:hover {
     transform: scale(1.2);
     filter: drop-shadow(0 0 8px hsl(250, 66%, 75%)); 
 }
 
-
 a {
     cursor: pointer;
     text-decoration: none;
 }
-
-
 
 @media screen and (max-width: 1020px) {
     .flex{
@@ -706,12 +624,10 @@ a {
     .topo-do-site .flex{
         gap: 40px;
     }
-
     
     .topo-do-site {
         padding: 20px 8%;
     }
-
     
     .topo-do-site h1{
         font-size: 30px;
@@ -745,20 +661,17 @@ a {
 
     .portfolio{
         padding: 80px 8%;
-
     }
 
     .img-port{
         width: 100%;
         max-width: 360px;
         margin: 0 auto;
-
     }
+
     .portfolio .flex{
         gap: 60px;
     }
-
-
 
     footer .flex{
         flex-direction: column;
@@ -770,28 +683,21 @@ a {
     }
 
     .btn-up{
-
-    position: fixed;
-    bottom: 230px;
-    right: 20px;
-    z-index: 99;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.4s, visibility 0.4s;
-    border: none;
-    background-color: transparent;
+        position: fixed;
+        bottom: 230px;
+        right: 20px;
+        z-index: 99;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.4s, visibility 0.4s;
+        border: none;
+        background-color: transparent;
     }
 
     .btn-up img{
-        
         width: 50px;
     }
-
 }
-
-
-
-
 
 ::-webkit-scrollbar{
     width: 10px;
@@ -800,5 +706,53 @@ a {
 ::-webkit-scrollbar-thumb{
     width: 10px;
     background-color: hsl(250, 66%, 75%);
-    
+}
+
+
+.player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    width: 100%;
+}
+
+.volume-control ion-icon {
+    color: hsl(250, 66%, 75%);
+    font-size: 1.2em;
+}
+
+.volume-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: #444;
+    outline: none;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: hsl(250, 66%, 75%);
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+
+.volume-slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: hsl(250, 66%, 75%);
+    border-radius: 50%;
+    border: 2px solid #000;
 }
