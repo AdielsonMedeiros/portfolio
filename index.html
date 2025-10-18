@@ -75,43 +75,14 @@
     <header>
         <div class="interface" id="inicio">
             <div class="logo">
-                <a href="#">
-                    <img src="/img/AM (2) (1) (1).png" alt="">
+                <a href="#inicio">
+                    <img src="img/AM (2) (1) (1).png" alt="Logo Adielson Medeiros">
                 </a>
             </div>
 
-            <div class="music">
-                <h2 class="title">Music name</h2>
-                <div class="player">
-                    <audio src=""></audio>
-                    <div class="btns">
-                        <span class="prev"><ion-icon name="play-back-outline"></ion-icon></span>
-                        <span class="playPause"><ion-icon name="play-outline"></ion-icon></span>
-                        <span class="next"><ion-icon name="play-forward-outline"></ion-icon></span>
-                    </div>
-                    
-                    <div class="volume-control">
-                        <ion-icon name="volume-medium-outline"></ion-icon>
-                        <input type="range" class="volume-slider" min="0" max="1" step="0.01" value="0.3">
-                    </div>
-
-                </div>
-            </div>
-            <div class="btn-contato">
-                <a href="cv/CV - Adielson Medeiros dos Santos.pdf">
-                    <button>DOWNLOAD CV <i class="bi bi-download"></i></button>
-                </a>
-            </div><div class="btn-abrir-menu" id="btn-menu">
-                <i class="bi bi-list"></i>
-            </div>
-
-            <div class="menu-mobile" id="menu-mobile">
-                <div class="btn-fechar">
-                    <i class="bi bi-x-lg"></i>
-                </div>
-            <nav>
+            <nav class="menu-desktop">
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#inicio">Início</a></li>
                     <li><a href="#especialidade">Especialidades</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#projetos">Projetos</a></li>
@@ -119,13 +90,46 @@
                 </ul>
             </nav>
 
+            <div class="music">
+                <h2 class="title">Music</h2>
+                <div class="player">
+                    <audio src=""></audio>
+                    <div class="btns">
+                        <span class="prev"><ion-icon name="play-back-outline"></ion-icon></span>
+                        <span class="playPause"><ion-icon name="play-outline"></ion-icon></span>
+                        <span class="next"><ion-icon name="play-forward-outline"></ion-icon></span>
+                    </div>
+                </div>
             </div>
 
-            <div class="overlay-menu" id="overlay-menu">
-
+            <div class="btn-contato">
+                <a href="cv/CV - Adielson Medeiros dos Santos.pdf" target="_blank">
+                    <button>Download CV</button>
+                </a>
+            </div>
+            
+            <div class="btn-abrir-menu" id="btn-menu">
+                <i class="bi bi-list"></i>
             </div>
 
-        </div></header>
+            <div class="menu-mobile" id="menu-mobile">
+                <div class="btn-fechar">
+                    <i class="bi bi-x-lg"></i>
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#especialidade">Especialidades</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#projetos">Projetos</a></li>
+                        <li><a href="#contatos">Contato</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="overlay-menu" id="overlay-menu"></div>
+        </div>
+    </header>
     <main>
         <section class="topo-do-site">
             <div class="interface">
@@ -322,32 +326,27 @@
     </main>
 
     <footer>
-        
         <div class="interface" id="contatos">
-            <div class="line-footer">
-                <div class="flex">
-                    <div class="logo-footer">
-                        <img src="img/AM (2) (1) (1).png" alt="llogo do adielson medeiros">
-                    </div>
-                    <div class="btn-social">
-                        <a href="https://www.linkedin.com/in/adielson-medeiros-671a68219/" target="_blank"><button><i class="bi bi-linkedin"></i></button></a>
-                        <a href="https://github.com/AdielsonMedeiros" target="_blank"><button><i class="bi bi-github"></i></button></a>
-                        <a href="mailto:medeirosadielson@gmail.com" target="_blank"><button><i class="bi bi-envelope"></i></button></a>
-                    </div>
+            <div class="footer-content">
+                <div class="logo-footer">
+                    <img src="img/AM (2) (1) (1).png" alt="Logo Adielson Medeiros">
                 </div>
                 
-            </div><div class="line-footer borda">
-                <p> <i class="bi bi-envelope-fill"></i> <a href="mailto:medeirosadielson@gmail.com">medeirosadielson@gmail.com</a> </p>
+                <div class="btn-social">
+                    <a href="https://www.linkedin.com/in/adielson-medeiros-671a68219/" target="_blank" aria-label="LinkedIn"><button><i class="bi bi-linkedin"></i></button></a>
+                    <a href="https://github.com/AdielsonMedeiros" target="_blank" aria-label="GitHub"><button><i class="bi bi-github"></i></button></a>
+                    <a href="mailto:medeirosadielson@gmail.com" target="_blank" aria-label="Email"><button><i class="bi bi-envelope"></i></button></a>
                 </div>
             </div>
-
-        
+            
+            <div class="footer-bottom">
+                <p><i class="bi bi-envelope-fill"></i> <a href="mailto:medeirosadielson@gmail.com">medeirosadielson@gmail.com</a></p>
+            </div>
         </div>
 
-          <a href="#"class="btn-up"  data-aos="zoom-in-up" data-aos-delay="400" >
-            <img src="./img/galaxiabtn.png" alt="botao para subir para o home">
+        <a href="#inicio" class="btn-up" data-aos="zoom-in-up" data-aos-delay="400">
+            <img src="./img/galaxiabtn.png" alt="Voltar ao topo">
         </a>
-
     </footer>
     <script src="./index.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>

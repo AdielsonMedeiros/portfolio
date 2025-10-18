@@ -97,32 +97,108 @@ body{
     gap: 29px;
 }
 
-.btn-contato button, .btn-contato-topo button{
-    padding: 10px 40px;
-    font-size: 15px;
-    color: #ddd;
-    font-weight: 600;
-    background-color: transparent;
-    border: 0;
-    border-radius: 30px;
+.btn-contato button{
+    padding: 12px 28px;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
     cursor: pointer;
-    transition: .2s;
+    transition: all 0.3s ease;
+}
+
+.btn-contato button:hover {
+    background: hsl(250, 66%, 75%);
+    border-color: hsl(250, 66%, 75%);
+    transform: translateY(-2px);
+}
+
+.music {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+}
+
+.title {
+    font-size: 10px;
+    color: #888;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.player {
+    display: flex;
+    align-items: center;
+}
+
+.btns {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.btns span {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.btns span:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: hsl(250, 66%, 75%);
+    color: hsl(250, 66%, 75%);
+}
+
+.btns span.playPause {
+    width: 32px;
+    height: 32px;
+}
+
+.btns span ion-icon {
+    font-size: 14px;
+}
+
+.btns span.playPause ion-icon {
+    font-size: 16px;
+}
+
+.btn-contato-topo {
+    margin-top: 40px;
 }
 
 .btn-contato-topo button{
-    background-color: transparent;
-    color: #fff;
-    box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
+    padding: 16px 35px;
+    font-size: 15px;
+    color: #000;
+    font-weight: 600;
+    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 75%));
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 30px rgba(138, 43, 226, 0.3);
 }
 
-.btn-contato button i{
-    font-size: 15px;
-    padding: 8px;
+.btn-contato-topo button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 40px rgba(138, 43, 226, 0.5);
 }
 
-.btn-contato-topo a button i{
-    font-size: 15px;
-    padding: 8px;
+.btn-contato-topo button i{
+    margin-right: 8px;
+    font-size: 16px;
 }
 
 button:hover, 
@@ -147,78 +223,7 @@ header .interface .logo a:hover img {
 }
 
 
-.music{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
-.title{
-    font-weight: 700;
-    font-size: 12px;
-    color: hsl(250, 66%, 75%);
-    text-align: center;
-    margin-bottom:10px;
-}
-
-.player{
-    position: relative;
-    width: 125px;
-    min-height: 20px;
-    background-color: transparent;
-    border: none;
-    border-radius: 40px;
-    padding: 10px 15px;
-}
-
-.btns{
-    position: relative;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-}
-
-.btns span{
-    position: relative;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: transparent;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    color: hsl(250, 66%, 75%);
-    box-shadow: inset 0 -3px 3px rgba(0,0,0,0.1),
-                0 3px 5px rgba(0,0,0,0.1),
-                0 5px 8px rgba(0,0,0,0.1);
-}
-
-.btns span:active,
-.btns span.active{
-    color: hsl(250, 66%, 75%);
-    box-shadow: inset 0 -4px 3px rgba(0,0,0,0.025),
-                inset 0 3px 5px rgba(0,0,0,0.15);
-}
-
-.btns span.playPause{
-    width: 25px;
-    height: 25px;
-}
-
-.btns span ion-icon{
-    font-size: 1em;
-}
-
-.btns span.playPause ion-icon{
-    font-size: 2em;
-}
-
-.btns span ion-icon:hover{
-    transform: scale(1.40);
-}
 
 
 h2.titulo{
@@ -233,34 +238,74 @@ h2.titulo span{
 }
 
 header{
-    padding: 40px 4%;
+    padding: 30px 4%;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header > .interface{
     display: flex;
     align-items: center;
     justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-header a{
-    color: #7d7d7d;
+.logo img {
+    max-width: 120px;
+    transition: opacity 0.3s ease;
+}
+
+.logo img:hover {
+    opacity: 0.8;
+}
+
+.menu-desktop {
+    display: flex;
+}
+
+.menu-desktop ul{
+    list-style: none;
+    display: flex;
+    gap: 50px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu-desktop a{
+    color: #ccc;
     text-decoration: none;
-    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    position: relative;
 }
 
-header nav.menu-desktop a:hover{
+.menu-desktop a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background: hsl(250, 66%, 75%);
+    transition: width 0.3s ease;
+}
+
+.menu-desktop a:hover{
     color: #fff;
-    transform: scale(1.05);
-    transition: .2s;
 }
 
-header nav ul{
-    list-style-type: none;
+.menu-desktop a:hover::after {
+    width: 100%;
 }
 
-header nav.menu-desktop ul li{
-    display: inline-block;
-    padding: 0 40px;
+.btn-abrir-menu {
+    display: none;
 }
 
 .btn-abrir-menu i{
@@ -333,7 +378,10 @@ header nav.menu-desktop ul li{
 }
 
 .topo-do-site {
-    padding: 80px 4%;
+    padding: 120px 4% 80px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
 }
 
 section .topo-do-site .flex{
@@ -345,31 +393,46 @@ section .topo-do-site .flex{
 .topo-do-site h1{
     color: #fff;
     font-size: 42px;
-    line-height: 40px;
+    line-height: 1.2;
+    font-weight: 600;
+    margin-bottom: 20px;
 }
 
 .topo-do-site .txt-topo-site span{
-    color: hsl(250, 66%, 75%);
-    position: relative;
+    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 85%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .topo-do-site p{
-    color: #fff;
-    margin: 40px 0px;
+    color: #ccc;
+    margin: 25px 0;
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 550px;
 }
 
 .topo-do-site .img-topo-site img{
     position: relative;
-    animation: flutuar 2s ease-in-out infinite alternate;
-    border-radius: 42%;
+    animation: flutuar 3s ease-in-out infinite alternate;
+    border-radius: 50%;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.topo-do-site .img-topo-site img:hover {
+    transform: scale(1.02);
 }
 
 @keyframes flutuar {
     0%{
-        top: 0;
+        transform: translateY(0);
     }
     100%{
-        top: 50px;
+        transform: translateY(-20px);
     }
 }
 
@@ -440,16 +503,22 @@ section .sobre .flex{
 }
 
 .btn-social button{
-    width: 60px;
-    height: 60px;
-    border-radius: 50% ;
-    border: none;
-    background-color: hsl(250, 66%, 75%);
-    font-size: 22px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: transparent;
+    color: #fff;
+    font-size: 20px;
     cursor: pointer;
-    margin: 0 5px;
-    transition: .2s;
-    margin-top: 60px;
+    margin: 0 8px;
+    transition: all 0.3s ease;
+}
+
+.btn-social button:hover {
+    background: hsl(250, 66%, 75%);
+    border-color: hsl(250, 66%, 75%);
+    transform: translateY(-3px);
 }
 
 
@@ -546,33 +615,51 @@ form .btn-enviar input[type=submit]{
 
 
 footer{
-    padding: 40px 4%;
-    box-shadow: 0 0 40px 10px #ffffff1d;
+    padding: 80px 4% 40px;
+    background: transparent;
 }
 
-footer .flex{
+.footer-content {
+    display: flex;
     justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 50px;
 }
 
-footer .line-footer{
-    padding: 20px 0;
+.logo-footer img {
+    max-width: 140px;
 }
 
-footer .line-footer .logo-footer img{
-    margin-top: 80px;
+.footer-bottom {
+    text-align: center;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.borda{
-    border-top: 2px solid hsl(250, 66%, 75%);
+.footer-bottom p {
+    color: #888;
+    font-size: 14px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
 }
 
-footer .line-footer p i{
-    color:hsl(250, 66%, 75%);
-    font-size: 22px;
+.footer-bottom i {
+    color: hsl(250, 66%, 75%);
+    font-size: 16px;
 }
 
-footer .line-footer p a{
-    color: #fff;
+.footer-bottom a {
+    color: #888;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-bottom a:hover {
+    color: hsl(250, 66%, 75%);
 }
 
 .btn-up{
@@ -617,8 +704,12 @@ a {
         line-height: 30px;
     }
     
-    .menu-desktop, .btn-contato{
+    .menu-desktop, .btn-contato, .music{
         display: none;
+    }
+    
+    .btn-abrir-menu {
+        display: block;
     }
     
     .topo-do-site .flex{
@@ -629,8 +720,18 @@ a {
         padding: 20px 8%;
     }
     
+    .topo-do-site {
+        min-height: auto;
+        padding: 60px 8%;
+    }
+    
     .topo-do-site h1{
-        font-size: 30px;
+        font-size: 32px;
+        line-height: 1.3;
+    }
+    
+    .topo-do-site p {
+        font-size: 16px;
     }
     
     .topo-do-site .img-topo-site img{
@@ -673,13 +774,13 @@ a {
         gap: 60px;
     }
 
-    footer .flex{
+    .footer-content {
         flex-direction: column;
-        gap: 30px;
+        gap: 40px;
     }
-
-    footer .line-footer{
-        text-align: center;
+    
+    footer {
+        padding: 60px 4% 30px;
     }
 
     .btn-up{
@@ -697,6 +798,8 @@ a {
     .btn-up img{
         width: 50px;
     }
+    
+
 }
 
 ::-webkit-scrollbar{
@@ -709,50 +812,3 @@ a {
 }
 
 
-.player {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-}
-
-.volume-control {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    width: 100%;
-}
-
-.volume-control ion-icon {
-    color: hsl(250, 66%, 75%);
-    font-size: 1.2em;
-}
-
-.volume-slider {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 100%;
-    height: 4px;
-    background: #444;
-    outline: none;
-    border-radius: 2px;
-    cursor: pointer;
-}
-
-.volume-slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 15px;
-    height: 15px;
-    background: hsl(250, 66%, 75%);
-    border-radius: 50%;
-    border: 2px solid #000;
-}
-
-.volume-slider::-moz-range-thumb {
-    width: 15px;
-    height: 15px;
-    background: hsl(250, 66%, 75%);
-    border-radius: 50%;
-    border: 2px solid #000;
-}

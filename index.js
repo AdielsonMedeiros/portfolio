@@ -7,7 +7,7 @@ const prev = document.querySelector('.prev');
 const playPause = document.querySelector('.playPause');
 const next = document.querySelector('.next');
 const audio = document.querySelector('audio');
-const downloadCv = document.querySelector('.btn-contato');
+const downloadCv = document.querySelector('.btn-contato a');
 const volumeSlider = document.querySelector('.volume-slider');
 
 
@@ -72,13 +72,16 @@ function pauseSong(){
     playPause.innerHTML = '<ion-icon name="play-outline"></ion-icon>';
 }
 
-playPause.addEventListener("click", () => (song_Playing ? pauseSong() : playSong()));
+if (playPause) {
+    playPause.addEventListener("click", () => (song_Playing ? pauseSong() : playSong()));
+}
 
 
-volumeSlider.addEventListener('input', () => {
-    
-    audio.volume = volumeSlider.value;
-});
+if (volumeSlider) {
+    volumeSlider.addEventListener('input', () => {
+        audio.volume = volumeSlider.value;
+    });
+}
 
 function loadSong(songList){
     title.textContent = songList.songName;
@@ -87,7 +90,9 @@ function loadSong(songList){
 
 let i = 0;
 
-loadSong(songList[i]);
+if (audio && title) {
+    loadSong(songList[i]);
+}
 
 function prevSong(){
     i--;
@@ -97,7 +102,9 @@ function prevSong(){
     loadSong(songList[i]);
     playSong();
 }
-prev.addEventListener("click", prevSong);
+if (prev) {
+    prev.addEventListener("click", prevSong);
+}
 
 function nextSong(){
     i++;
@@ -107,7 +114,9 @@ function nextSong(){
     loadSong(songList[i]);
     playSong();
 }
-next.addEventListener("click", nextSong);
+if (next) {
+    next.addEventListener("click", nextSong);
+}
 
 downloadCv.addEventListener('click', function(event) {
     event.preventDefault();
