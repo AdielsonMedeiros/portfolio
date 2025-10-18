@@ -143,8 +143,8 @@ overlay.addEventListener('click', () => {
 });
 
 ScrollReveal().reveal('.interface', {
-    duration: 3000,
-    reset: true
+    duration: 1500,
+    reset: false
 });
 
 const btnUp = document.querySelector('.btn-up');
@@ -170,7 +170,7 @@ function espalharEstrelas() {
     estrelas.forEach(estrela => {
         const posicaoHorizontal = Math.random() * 100;
         const atrasoAnimacao = Math.random() * 20;
-        const duracaoAnimacao = 15 + Math.random() * 15;
+        const duracaoAnimacao = 20 + Math.random() * 10;
 
         estrela.style.left = `${posicaoHorizontal}%`;
         estrela.style.animationDelay = `${atrasoAnimacao}s`;
