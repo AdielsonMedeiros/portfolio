@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
+/* Variáveis do Tema */
+:root {
+    /* Tema Colorido (Padrão) */
+    --primary-color: hsl(250, 66%, 75%);
+    --primary-gradient-start: hsl(250, 66%, 75%);
+    --primary-gradient-end: hsl(280, 66%, 85%);
+    --secondary-gradient-start: hsl(250, 66%, 75%);
+    --secondary-gradient-end: hsl(280, 66%, 75%);
+    --star-color: #fff;
+    --star-alt-color: hsl(250, 66%, 75%);
+    --star-alt-color-2: #a8d8ff;
+}
+
+body.mono-theme {
+    /* Tema Monocromático */
+    --primary-color: #fff;
+    --primary-gradient-start: #f5f5f5;
+    --primary-gradient-end: #fff;
+    --secondary-gradient-start: #e0e0e0;
+    --secondary-gradient-end: #fff;
+    --star-color: #888;
+    --star-alt-color: #666;
+    --star-alt-color-2: #555;
+    background: #0a0a0a;
+}
+
 html{
     scroll-behavior: smooth;
 }
@@ -18,6 +44,7 @@ body{
     background-color: #000;
     min-height: 100vh;
     position: relative;
+    transition: all 0.3s ease;
 }
 
 
@@ -49,12 +76,12 @@ body{
 }
 
 .bolhas span{
-    position: absolute; 
-    width: 15px;   
-    height: 15px;  
-    background: #fff; 
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: var(--star-color);
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-    filter: drop-shadow(0 0 3px #fff) drop-shadow(0 0 6px rgba(138, 43, 226, 0.6));
+    filter: drop-shadow(0 0 3px var(--star-color)) drop-shadow(0 0 6px rgba(138, 43, 226, 0.6));
     bottom: 0;
     opacity: 0;
     animation: animar-estrelas linear infinite, piscar 3s ease-in-out infinite;
@@ -62,15 +89,15 @@ body{
 }
 
 .bolhas span:nth-of-type(3n){
-    background: hsl(250, 66%, 75%);
-    filter: drop-shadow(0 0 4px hsl(250, 66%, 75%)) drop-shadow(0 0 8px hsl(250, 66%, 75%));
+    background: var(--star-alt-color);
+    filter: drop-shadow(0 0 4px var(--star-alt-color)) drop-shadow(0 0 8px var(--star-alt-color));
     width: 20px;
     height: 20px;
 }
 
 .bolhas span:nth-of-type(5n){
-    background: #a8d8ff;
-    filter: drop-shadow(0 0 2px #a8d8ff) drop-shadow(0 0 5px rgba(168, 216, 255, 0.5));
+    background: var(--star-alt-color-2);
+    filter: drop-shadow(0 0 2px var(--star-alt-color-2)) drop-shadow(0 0 5px rgba(168, 216, 255, 0.5));
     width: 12px;
     height: 12px;
 }
@@ -129,8 +156,8 @@ body{
 }
 
 .btn-contato button:hover {
-    background: hsl(250, 66%, 75%);
-    border-color: hsl(250, 66%, 75%);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -176,8 +203,8 @@ body{
 
 .btns span:hover {
     background: rgba(255, 255, 255, 0.05);
-    border-color: hsl(250, 66%, 75%);
-    color: hsl(250, 66%, 75%);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
 }
 
 .btns span.playPause {
@@ -202,7 +229,7 @@ body{
     font-size: 15px;
     color: #000;
     font-weight: 600;
-    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 75%));
+    background: linear-gradient(135deg, var(--secondary-gradient-start), var(--secondary-gradient-end));
     border: none;
     border-radius: 50px;
     cursor: pointer;
@@ -220,10 +247,10 @@ body{
     font-size: 16px;
 }
 
-button:hover, 
+button:hover,
 form .btn-enviar input:hover[type=submit],
 .btn-social button:hover {
-    box-shadow: 0px 0px 8px hsl(250, 66%, 75%);
+    box-shadow: 0px 0px 8px var(--primary-color);
     transform: scale(1.05);
 }
 
@@ -237,7 +264,7 @@ header .interface .logo a img {
 }
 
 header .interface .logo a:hover img {
-    filter: drop-shadow(0px 0px 20px hsl(250, 66%, 75%));
+    filter: drop-shadow(0px 0px 20px var(--primary-color));
     transform: scale(1.05);
 }
 
@@ -253,7 +280,7 @@ h2.titulo{
 }
 
 h2.titulo span{
-    color: hsl(250, 66%, 75%);
+    color: var(--primary-color);
 }
 
 header{
@@ -272,6 +299,7 @@ header > .interface{
     justify-content: space-between;
     max-width: 1400px;
     margin: 0 auto;
+    gap: 30px;
 }
 
 .logo img {
@@ -311,7 +339,7 @@ header > .interface{
     left: 0;
     width: 0;
     height: 1px;
-    background: hsl(250, 66%, 75%);
+    background: var(--primary-color);
     transition: width 0.3s ease;
 }
 
@@ -328,7 +356,7 @@ header > .interface{
 }
 
 .btn-abrir-menu i{
-    color: hsl(250, 66%, 75%);
+    color: var(--primary-color);
     font-size: 40px;
     cursor: pointer;
 }
@@ -371,7 +399,7 @@ header > .interface{
 }
 
 .menu-mobile nav ul li a:hover{
-    background-color: hsl(250, 66%, 75%);
+    background-color: var(--primary-color);
     color: #000;
 }
 
@@ -392,8 +420,129 @@ header > .interface{
 }
 
 .menu-mobile .btn-fechar i{
-    color: hsl(250, 66%, 75%);
+    color: var(--primary-color);
     font-size: 30px;
+}
+
+.menu-mobile-theme {
+    padding: 25px 8%;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 20px;
+    display: block;
+}
+
+.theme-switcher-mobile {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 15px;
+}
+
+.theme-label-mobile {
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.theme-label-mobile:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.switch-mobile {
+    position: relative;
+    width: 54px;
+    height: 28px;
+    display: inline-block;
+    flex-shrink: 0;
+}
+
+.switch-mobile input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+}
+
+.slider-mobile {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.4s;
+    border-radius: 34px;
+}
+
+.slider-mobile:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 2px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    transition: all 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.switch-mobile input:checked + .slider-mobile {
+    background: rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.4);
+}
+
+.switch-mobile input:checked + .slider-mobile:before {
+    transform: translateX(26px);
+    background: #fff;
+}
+
+.slider-mobile:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+@media screen and (max-width: 480px) {
+    .theme-label-mobile {
+        font-size: 14px;
+    }
+
+    .switch-mobile {
+        width: 50px;
+        height: 26px;
+    }
+
+    .slider-mobile:before {
+        height: 18px;
+        width: 18px;
+    }
+
+    .switch-mobile input:checked + .slider-mobile:before {
+        transform: translateX(24px);
+    }
+
+    .carousel-container {
+        padding: 0 40px;
+    }
+
+    .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .carousel-btn i {
+        font-size: 20px;
+    }
+
+    .img-port {
+        height: 350px;
+    }
 }
 
 .topo-do-site {
@@ -418,10 +567,11 @@ section .topo-do-site .flex{
 }
 
 .topo-do-site .txt-topo-site span{
-    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 85%));
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    white-space: nowrap;
 }
 
 .topo-do-site p{
@@ -483,7 +633,7 @@ section.especialidades .flex{
 
 .especialidades .especialidades-box i{
     font-size: 60px;
-    color:hsl(250, 66%, 75%);
+    color: var(--primary-color);
     transition: transform 0.3s ease;
 }
 
@@ -538,7 +688,7 @@ section .sobre .flex{
 }
 
 .sobre .txt-sobre h2 span{
-    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 85%));
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -567,8 +717,8 @@ section .sobre .flex{
 }
 
 .btn-social button:hover {
-    background: hsl(250, 66%, 75%);
-    border-color: hsl(250, 66%, 75%);
+    background: var(--primary-color);
+    border-color: var(--primary-color);
     transform: translateY(-3px);
 }
 
@@ -577,15 +727,108 @@ section .sobre .flex{
     padding: 100px 4%;
 }
 
-.portfolio .flex{
-    justify-content: center;
-    gap: 30px;
+/* Carrossel de Projetos */
+.carousel-container {
+    position: relative;
     margin-top: 60px;
-    flex-wrap: wrap;
+    padding: 0 60px;
+}
+
+.carousel-wrapper {
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.carousel-track {
+    display: flex;
+    gap: 30px;
+    transition: transform 0.5s ease;
+}
+
+.carousel-item {
+    min-width: calc((100% - 60px) / 3);
+    flex-shrink: 0;
+}
+
+.carousel-item .img-port {
+    width: 100%;
+    margin: 0;
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    color: #fff;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn i {
+    font-size: 28px;
+    transition: all 0.3s ease;
+}
+
+.carousel-btn:hover {
+    transform: translateY(-50%) scale(1.15);
+}
+
+.carousel-btn:focus,
+.carousel-btn:active {
+    outline: none;
+    box-shadow: none;
+}
+
+.prev-btn {
+    left: 0;
+}
+
+.next-btn {
+    right: 0;
+}
+
+.carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 40px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--primary-color);
+    border-color: var(--primary-color);
+    width: 40px;
+    border-radius: 20px;
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 .img-port{
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
     height: 460px;
     background-size: cover;
     background-position: 100% 0%;
@@ -652,7 +895,7 @@ form input, form textarea{
 }
 
 form input:focus, form textarea:focus{
-    border-color: hsl(250, 66%, 75%);
+    border-color: var(--primary-color);
     background: rgba(138, 43, 226, 0.05);
     box-shadow: 0 0 20px rgba(138, 43, 226, 0.2);
 }
@@ -674,7 +917,7 @@ form .btn-enviar{
 form .btn-enviar input[type=submit]{
     width: 180px;
     padding: 16px 40px;
-    background: linear-gradient(135deg, hsl(250, 66%, 75%), hsl(280, 66%, 75%));
+    background: linear-gradient(135deg, var(--secondary-gradient-start), var(--secondary-gradient-end));
     color: #000;
     font-weight: 600;
     font-size: 15px;
@@ -725,7 +968,7 @@ footer{
 }
 
 .footer-bottom i {
-    color: hsl(250, 66%, 75%);
+    color: var(--primary-color);
     font-size: 16px;
 }
 
@@ -736,7 +979,7 @@ footer{
 }
 
 .footer-bottom a:hover {
-    color: hsl(250, 66%, 75%);
+    color: var(--primary-color);
 }
 
 .btn-up{
@@ -763,7 +1006,7 @@ footer{
 
 .btn-up img:hover {
     transform: scale(1.2);
-    filter: drop-shadow(0 0 8px hsl(250, 66%, 75%)); 
+    filter: drop-shadow(0 0 8px var(--primary-color));
 }
 
 a {
@@ -781,18 +1024,125 @@ a {
         line-height: 30px;
     }
     
-    .menu-desktop, .btn-contato, .music{
+    .menu-desktop, .btn-contato{
         display: none;
     }
-    
+
+    header > .interface {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo {
+        grid-column: 1;
+        justify-self: start;
+    }
+
+    .music {
+        grid-column: 2;
+        justify-self: center;
+    }
+
+    .music .title {
+        font-size: 8px;
+    }
+
+    .btns {
+        gap: 6px;
+    }
+
+    .btns span {
+        width: 24px;
+        height: 24px;
+    }
+
+    .btns span ion-icon {
+        font-size: 12px;
+    }
+
+    .btns span.playPause {
+        width: 28px;
+        height: 28px;
+    }
+
+    .btns span.playPause ion-icon {
+        font-size: 14px;
+    }
+
     .btn-abrir-menu {
         display: block;
+        grid-column: 3;
+        justify-self: end;
     }
-    
+
+    .theme-switcher {
+        display: none !important;
+    }
+
+    header .theme-switcher {
+        display: none !important;
+    }
+
+    body.mono-theme .music .title {
+        font-size: 13px;
+        color: #fff;
+        letter-spacing: 2.5px;
+        font-weight: 600;
+    }
+
+    body.mono-theme .especialidades .especialidades-box p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    body.mono-theme .especialidades .especialidades-box h3 {
+        font-size: 22px;
+    }
+
+    body.mono-theme .sobre .txt-sobre p {
+        font-size: 16px;
+        line-height: 1.9;
+    }
+
+    body.mono-theme .sobre .txt-sobre h2 {
+        font-size: 30px;
+    }
+
+    body.mono-theme .topo-do-site h1 {
+        font-size: 30px;
+    }
+
+    body.mono-theme .topo-do-site p {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    body.mono-theme .overlay {
+        font-size: 24px;
+        letter-spacing: 3px;
+    }
+
+    body.mono-theme form input,
+    body.mono-theme form textarea {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    body.mono-theme form input::placeholder,
+    body.mono-theme form textarea::placeholder {
+        font-size: 15px;
+    }
+
+    body.mono-theme h2.titulo {
+        font-size: 28px;
+    }
+
     .topo-do-site .flex{
         gap: 40px;
     }
-    
+
     .topo-do-site {
         padding: 20px 8%;
     }
@@ -841,14 +1191,48 @@ a {
         padding: 80px 8%;
     }
 
+    .carousel-container {
+        padding: 0 50px;
+    }
+
+    .carousel-item {
+        min-width: 100%;
+    }
+
+    .carousel-track {
+        gap: 0;
+    }
+
+    .carousel-btn {
+        width: 40px;
+        height: 40px;
+    }
+
+    .carousel-btn i {
+        font-size: 24px;
+    }
+
+    .carousel-btn:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .prev-btn {
+        left: 0;
+    }
+
+    .next-btn {
+        right: 0;
+    }
+
     .img-port{
         width: 100%;
-        max-width: 360px;
+        max-width: 100%;
+        height: 400px;
         margin: 0 auto;
     }
 
-    .portfolio .flex{
-        gap: 60px;
+    .carousel-dots {
+        margin-top: 30px;
     }
 
     .footer-content {
@@ -885,7 +1269,616 @@ a {
 
 ::-webkit-scrollbar-thumb{
     width: 10px;
-    background-color: hsl(250, 66%, 75%);
+    background-color: var(--primary-color);
 }
+
+/* Theme Switcher */
+.theme-switcher {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-left: 20px;
+}
+
+.theme-label {
+    color: #fff;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.theme-label:hover {
+    color: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.switch {
+    position: relative;
+    width: 50px;
+    height: 26px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 4px;
+    bottom: 3px;
+    background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    transition: all 0.4s;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+input:checked + .slider {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+input:checked + .slider:before {
+    transform: translateX(24px);
+    background: #fff;
+}
+
+.slider:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+/* ========================================
+   TEMA MONOCROMÁTICO - MUDANÇAS DE LAYOUT
+   ======================================== */
+
+body.mono-theme {
+    font-family: 'Courier New', monospace;
+}
+
+/* Header mais compacto e minimalista */
+body.mono-theme header {
+    padding: 20px 4%;
+    background: #000;
+    border-bottom: 2px solid #333;
+    backdrop-filter: none;
+}
+
+body.mono-theme .theme-label {
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+body.mono-theme .theme-label:hover {
+    color: #aaa;
+}
+
+body.mono-theme .logo img {
+    filter: grayscale(100%) brightness(1.2);
+}
+
+/* Menu com estilo minimalista */
+body.mono-theme .menu-desktop a {
+    color: #aaa;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-family: 'Courier New', monospace;
+}
+
+body.mono-theme .menu-desktop a::after {
+    height: 2px;
+    background: #fff;
+}
+
+body.mono-theme .menu-desktop a:hover {
+    color: #fff;
+}
+
+/* Botões com estilo angular */
+body.mono-theme .btn-contato button,
+body.mono-theme .btn-contato-topo button {
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+    padding: 14px 30px;
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+    box-shadow: 4px 4px 0 #333;
+}
+
+body.mono-theme .btn-contato button:hover,
+body.mono-theme .btn-contato-topo button:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #333;
+}
+
+/* Topo do site com layout grid */
+body.mono-theme .topo-do-site {
+    padding: 80px 4% 60px;
+    min-height: 80vh;
+}
+
+body.mono-theme .topo-do-site h1 {
+    font-family: 'Courier New', monospace;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+body.mono-theme .topo-do-site p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.8;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 0.5px;
+}
+
+body.mono-theme .topo-do-site .img-topo-site img {
+    filter: grayscale(100%) contrast(1.2);
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    animation: none;
+    clip-path: none;
+    transition: transform 0.8s ease;
+}
+
+body.mono-theme .topo-do-site .img-topo-site img:hover {
+    transform: rotate(360deg) scale(1.05);
+    box-shadow: none;
+}
+
+/* Títulos com estilo minimalista */
+body.mono-theme h2.titulo {
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-top: 60px;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+body.mono-theme h2.titulo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+}
+
+body.mono-theme h2.titulo span {
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: #fff;
+}
+
+/* Especialidades com layout grid diferente */
+body.mono-theme .especialidades {
+    padding: 80px 4%;
+}
+
+body.mono-theme .especialidades .especialidades-box {
+    border-radius: 0;
+    background: #000;
+    border: 2px solid #333;
+    padding: 35px 25px;
+    box-shadow: 6px 6px 0 #1a1a1a;
+    transition: all 0.3s ease;
+}
+
+body.mono-theme .especialidades .especialidades-box:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #1a1a1a;
+    border-color: #fff;
+    background: #111;
+}
+
+body.mono-theme .especialidades .especialidades-box i {
+    color: #fff;
+    font-size: 50px;
+}
+
+body.mono-theme .especialidades .especialidades-box h3 {
+    font-family: 'Courier New', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+body.mono-theme .especialidades .especialidades-box p {
+    color: #999;
+    font-size: 13px;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
+}
+
+/* Seção Sobre com layout alterado */
+body.mono-theme .sobre {
+    padding: 100px 4%;
+    background: #000;
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+}
+
+body.mono-theme .sobre .txt-sobre h2 {
+    font-family: 'Courier New', monospace;
+    font-size: 32px;
+    letter-spacing: 1px;
+    line-height: 1.2;
+}
+
+body.mono-theme .sobre .txt-sobre h2 span {
+    color: #fff;
+    background: none;
+    -webkit-text-fill-color: #fff;
+}
+
+body.mono-theme .sobre .txt-sobre p {
+    color: #aaa;
+    font-size: 14px;
+    line-height: 1.7;
+    font-family: 'Courier New', monospace;
+}
+
+body.mono-theme .sobre .flex img {
+    border-radius: 50%;
+    border: none;
+    box-shadow: none;
+    filter: grayscale(100%) contrast(1.2);
+    animation: none;
+    transition: transform 0.8s ease;
+}
+
+body.mono-theme .sobre .flex img:hover {
+    transform: rotate(360deg) scale(1.05);
+    box-shadow: none;
+}
+
+/* Botões sociais quadrados */
+body.mono-theme .btn-social button {
+    border-radius: 0;
+    border: 2px solid #fff;
+    background: #000;
+    width: 45px;
+    height: 45px;
+    box-shadow: 4px 4px 0 #333;
+}
+
+body.mono-theme .btn-social button:hover {
+    background: #fff;
+    color: #000;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 #333;
+}
+
+/* Portfólio com grid alterado */
+body.mono-theme .portfolio {
+    padding: 80px 4%;
+}
+
+body.mono-theme .carousel-btn {
+    background: transparent;
+    border: none;
+    border-radius: 50%;
+    box-shadow: none;
+}
+
+body.mono-theme .carousel-btn i {
+    font-size: 32px;
+}
+
+body.mono-theme .carousel-btn:hover {
+    background: transparent;
+    color: #fff;
+    transform: translateY(-50%) scale(1.2);
+}
+
+body.mono-theme .carousel-btn:hover i {
+    color: #fff;
+}
+
+body.mono-theme .carousel-wrapper {
+    border-radius: 0;
+}
+
+body.mono-theme .dot {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid #555;
+    border-radius: 0;
+}
+
+body.mono-theme .dot.active {
+    background: #fff;
+    border-color: #fff;
+    border-radius: 0;
+}
+
+body.mono-theme .dot:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+body.mono-theme .img-port {
+    border-radius: 0;
+    border: 3px solid #fff;
+    box-shadow: 8px 8px 0 #333;
+    transition: all 0.5s ease;
+    filter: grayscale(100%) contrast(1.3);
+    background-position: center top;
+}
+
+body.mono-theme .img-port:hover {
+    transform: translate(4px, 4px);
+    box-shadow: 4px 4px 0 #333;
+    background-position: center center;
+}
+
+body.mono-theme .overlay {
+    background: rgba(0, 0, 0, 0.98);
+    border-radius: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+    border: 2px solid #fff;
+    border-width: 0 2px 2px 0;
+    line-height: 1.4;
+    padding: 20px;
+}
+
+body.mono-theme .img-port:hover .overlay {
+    opacity: 0;
+}
+
+/* Formulário minimalista */
+body.mono-theme .formulario {
+    padding: 80px 4%;
+}
+
+body.mono-theme form input,
+body.mono-theme form textarea {
+    border-radius: 0;
+    background: #000;
+    border: 2px solid #333;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    padding: 15px 18px;
+}
+
+body.mono-theme form input:focus,
+body.mono-theme form textarea:focus {
+    border-color: #fff;
+    background: #111;
+    box-shadow: 4px 4px 0 #333;
+}
+
+body.mono-theme form .btn-enviar input[type=submit] {
+    border-radius: 0;
+    background: #fff;
+    color: #000;
+    border: 2px solid #fff;
+    box-shadow: 6px 6px 0 #333;
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+body.mono-theme form .btn-enviar input[type=submit]:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #333;
+}
+
+/* Footer minimalista */
+body.mono-theme footer {
+    padding: 60px 4% 30px;
+    background: #000;
+    border-top: 2px solid #333;
+}
+
+body.mono-theme .footer-bottom {
+    border-top: 2px solid #333;
+}
+
+body.mono-theme .footer-bottom p {
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+body.mono-theme .logo-footer img {
+    filter: grayscale(100%) brightness(1.2);
+}
+
+/* Estrelas mais sutis */
+body.mono-theme .bolhas span {
+    opacity: 0.3;
+    filter: none;
+    background: #666;
+}
+
+body.mono-theme .bolhas span:nth-of-type(3n) {
+    background: #555;
+    filter: none;
+}
+
+body.mono-theme .bolhas span:nth-of-type(5n) {
+    background: #444;
+    filter: none;
+}
+
+/* Scrollbar minimalista */
+body.mono-theme::-webkit-scrollbar-thumb {
+    background-color: #fff;
+}
+
+/* Menu mobile */
+body.mono-theme .menu-mobile {
+    background: #000;
+    border-left: 2px solid #333;
+}
+
+body.mono-theme .menu-mobile nav ul li a {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 16px;
+    border-bottom: 1px solid #222;
+}
+
+body.mono-theme .menu-mobile nav ul li a:hover {
+    background: #fff;
+    color: #000;
+}
+
+body.mono-theme .menu-mobile-theme {
+    border-top: 2px solid #333;
+}
+
+body.mono-theme .theme-label-mobile {
+    font-family: 'Courier New', monospace;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 3px;
+}
+
+body.mono-theme .theme-label-mobile:hover {
+    color: #aaa;
+}
+
+body.mono-theme .slider-mobile {
+    border: 2px solid #555;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.mono-theme .slider-mobile:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+@media screen and (max-width: 480px) {
+    body.mono-theme .theme-label-mobile {
+        font-size: 14px;
+    }
+
+    body.mono-theme .carousel-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    body.mono-theme .carousel-btn i {
+        font-size: 24px;
+    }
+}
+
+body.mono-theme .btn-up img {
+    filter: grayscale(100%) brightness(1.5);
+    border-radius: 50%;
+    border: none;
+}
+
+body.mono-theme .btn-up img:hover {
+    transform: scale(1.2);
+    filter: grayscale(100%) brightness(1.8) drop-shadow(0 0 15px #fff);
+}
+
+/* Player de música minimalista */
+body.mono-theme .music .title {
+    font-family: 'Courier New', monospace;
+    color: #666;
+}
+
+body.mono-theme .btns span {
+    border-radius: 0;
+    border: none;
+    background: transparent;
+}
+
+body.mono-theme .btns span:hover {
+    background: transparent;
+    color: #fff;
+    border: none;
+}
+
+/* Sistema Solar no tema monocromático */
+body.mono-theme .solar {
+    padding: 400px 4%;
+}
+
+body.mono-theme .sun {
+    filter: grayscale(100%) brightness(1.5);
+    box-shadow: 0 0 40px #fff, 0 0 80px #aaa;
+}
+
+body.mono-theme .mercury,
+body.mono-theme .venus,
+body.mono-theme .earth,
+body.mono-theme .mars,
+body.mono-theme .jupiter,
+body.mono-theme .saturn,
+body.mono-theme .urans,
+body.mono-theme .neptune {
+    filter: grayscale(100%) brightness(1.2);
+    box-shadow: 0 0 20px #888;
+}
+
+body.mono-theme .saturn {
+    box-shadow: none;
+}
+
+body.mono-theme .earth-inner {
+    background: #fff;
+    box-shadow: 0 0 5px #fff;
+}
+
+body.mono-theme .earth-circle {
+    border-color: #666;
+}
+
+body.mono-theme .solar .interface p {
+    color: #ccc;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
 
 

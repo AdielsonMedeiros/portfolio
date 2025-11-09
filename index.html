@@ -73,7 +73,15 @@
                     <button>Download CV</button>
                 </a>
             </div>
-            
+
+            <div class="theme-switcher">
+                <label class="switch">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="slider"></span>
+                </label>
+                <span class="theme-label" id="theme-label-desktop">Mono</span>
+            </div>
+
             <div class="btn-abrir-menu" id="btn-menu">
                 <i class="bi bi-list"></i>
             </div>
@@ -91,6 +99,15 @@
                         <li><a href="#contatos">Contato</a></li>
                     </ul>
                 </nav>
+                <div class="menu-mobile-theme">
+                    <div class="theme-switcher-mobile">
+                        <label class="switch-mobile">
+                            <input type="checkbox" id="theme-toggle-mobile">
+                            <span class="slider-mobile"></span>
+                        </label>
+                        <span class="theme-label-mobile" id="theme-label-mobile">Mono</span>
+                    </div>
+                </div>
             </div>
 
             <div class="overlay-menu" id="overlay-menu"></div>
@@ -101,7 +118,7 @@
             <div class="interface">
                 <div class="flex">
                     <div class="txt-topo-site">
-                        <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL <span>.</span></h1>
+                        <h1>TRANSFORMANDO IDEIAS EM REALIDADE DIGITAL<span>.</span></h1>
                         <p>Em um mundo cada vez mais conectado, acredito no poder das ideias e em sua transformação em soluções digitais inovadoras. Meu objetivo é dar vida às ideias, transformando-as em experiências digitais únicas e envolventes. Seja um site, um aplicativo móvel ou uma solução de comércio eletrônico.</p>
                         <div class="btn-contato-topo">
                             <a href="https://wa.me/5521968520520" target="_blank">
@@ -133,7 +150,7 @@
                         <p>Esta loja online de roupas é um estudo de caso em comércio eletrônico focado no setor de moda. Ela demonstra minha compreensão das complexidades do desenvolvimento de plataformas de e-commerce, tudo dentro do contexto específico da venda de roupas online. Você pode ver este e outros projetos de e-commerce no meu GitHub.</p>
                     </div>
                     <div class="especialidades-box">
-                        <i class="bi bi-box-fill"></i>
+                        <i class="bi bi-phone-fill"></i>
                         <h3>Aplicativos</h3>
                         <p>Esses aplicativos são resultados dos meus estudos em desenvolvimento de aplicativos móveis. Cada um deles destaca minha habilidade em criar interfaces de usuário intuitivas e otimizar o desempenho do aplicativo. Todos os meus projetos de aplicativos podem ser encontrados no meu GitHub.</p>
                     </div>
@@ -172,41 +189,85 @@
         <section class="portfolio" id="projetos">
             <div class="interface">
                 <h2 class="titulo">MEU <span>PORTFÓLIO</span></h2>
-                <div class="flex">
 
+                <div class="carousel-container">
+                    <button class="carousel-btn prev-btn" aria-label="Projeto anterior">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
 
-                    <div class="img-port" style="background-image: url(img/projeto1.jpg) ;" >
-                        <div class="overlay">Sistema de suporte</div>
+                    <div class="carousel-wrapper">
+                        <div class="carousel-track">
+                            <!-- Projeto 1 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto1.jpg);">
+                                    <div class="overlay">Sistema de suporte</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 2 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto2.jpg);">
+                                    <div class="overlay">Cardápio online</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 3 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto3.jpg);">
+                                    <div class="overlay">Loja de roupas</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 4 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projetoAPPnutri.png);">
+                                    <div class="overlay">App de nutrição</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 5 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/snq.png);">
+                                    <div class="overlay">Social Network Live</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 6 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto6.jpg);">
+                                    <div class="overlay">Gerenciamento de tempo</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 7 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto7.jpg);">
+                                    <div class="overlay">APP CONTROL</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 8 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto8.jpg);">
+                                    <div class="overlay">DOWNLOADER</div>
+                                </div>
+                            </div>
+
+                            <!-- Projeto 9 -->
+                            <div class="carousel-item">
+                                <div class="img-port" style="background-image: url(img/projeto9.jpg);">
+                                    <div class="overlay">LFG ADVOCACIA</div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="img-port" style="background-image: url(img/projeto2.jpg) ;">
-                        <div class="overlay">Cardápio online</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(img/projeto3.jpg) ;">
-                        <div class="overlay">Loja de roupas</div>
-                    </div>
 
-                    
-
+                    <button class="carousel-btn next-btn" aria-label="Próximo projeto">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
                 </div>
-            </div>
-            <div class="interface">
-                
-                <div class="flex">
 
-
-                    <div class="img-port" style="background-image: url(img/projetoAPPnutri.png) ;" >
-                        <div class="overlay">App de nutrição</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(img/snq.png) ;">
-                        <div class="overlay">Social Network Live</div>
-                    </div>
-                    <div class="img-port" style="background-image: url(img/projeto6.jpg) ;">
-                        <div class="overlay">gerenciamento de tempo</div>
-                    </div>
-
-                    
-
-                </div>
+                <div class="carousel-dots"></div>
             </div>
         </section>
 

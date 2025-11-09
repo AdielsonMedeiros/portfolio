@@ -229,6 +229,7 @@
     top: 45%;
     transform: translate(-50%, -50%);
     animation: orbit8 90s linear infinite;
+    box-shadow: none;
   }
   
   @keyframes orbit8 {
@@ -327,10 +328,10 @@
       left: 46%;
       top: 47%;
       transform: translate(-50%, -50%);
-      animation: orbit2 2s linear infinite;
+      animation: orbit2-mobile 2s linear infinite;
     }
-    
-    @keyframes orbit2 {
+
+    @keyframes orbit2-mobile {
       from {
         transform: rotate(0deg) translateX(35px) rotate(0deg);
       }
@@ -343,10 +344,10 @@
       left: 44%;
       top: 45%;
       transform: translate(-50%, -50%);
-      animation: orbit3 10s linear infinite;
+      animation: orbit3-mobile 10s linear infinite;
     }
-    
-    @keyframes orbit3 {
+
+    @keyframes orbit3-mobile {
       from {
         transform: rotate(0deg) translateX(58px) rotate(0deg);
       }
@@ -359,9 +360,10 @@
       left: 48%;
       top: 48%;
       transform: translate(-50%, -50%);
-      animation: orbit4 20s linear infinite;
+      animation: orbit4-mobile 20s linear infinite;
     }
-    @keyframes orbit4 {
+
+    @keyframes orbit4-mobile {
       from {
         transform: rotate(0deg) translateX(75px) rotate(0deg);
       }
@@ -374,10 +376,10 @@
       left: 46%;
       top: 46%;
       transform: translate(-50%, -50%);
-      animation: orbit6 30s linear infinite;
+      animation: orbit6-mobile 30s linear infinite;
     }
-    
-    @keyframes orbit6 {
+
+    @keyframes orbit6-mobile {
       from {
         transform: rotate(0deg) translateX(95px) rotate(0deg);
       }
@@ -390,10 +392,10 @@
       left: 46%;
       top: 49%;
       transform: translate(-50%, -50%);
-      animation: orbit7 60s linear infinite;
+      animation: orbit7-mobile 60s linear infinite;
     }
-    
-    @keyframes orbit7 {
+
+    @keyframes orbit7-mobile {
       from {
         transform: rotate(0deg) translateX(120px) rotate(0deg);
       }
@@ -406,10 +408,10 @@
       left: 48%;
       top: 48%;
       transform: translate(-50%, -50%);
-      animation: orbit8 90s linear infinite;
+      animation: orbit8-mobile 90s linear infinite;
     }
-    
-    @keyframes orbit8 {
+
+    @keyframes orbit8-mobile {
       from {
         transform: rotate(0deg) translateX(140px) rotate(0deg);
       }
@@ -422,10 +424,10 @@
       left: 48%;
       top: 48%;
       transform: translate(-50%, -50%);
-      animation: orbit9 200s linear infinite;
+      animation: orbit9-mobile 200s linear infinite;
     }
-    
-    @keyframes orbit9 {
+
+    @keyframes orbit9-mobile {
       from {
         transform: rotate(0deg) translateX(160px) rotate(0deg);
       }
@@ -438,10 +440,10 @@
       left: 48%;
       top: 49%;
       transform: translate(-50%, -50%);
-      animation: orbit10 400s linear infinite;
+      animation: orbit10-mobile 400s linear infinite;
     }
-    
-    @keyframes orbit10 {
+
+    @keyframes orbit10-mobile {
       from {
         transform: rotate(0deg) translateX(180px) rotate(0deg);
       }
@@ -519,9 +521,10 @@
     transform: translate(-50%, -50%);
     left: 45%;
     top: 45%;
-    animation: orbit5 3s linear infinite;
+    animation: orbit5-mobile 3s linear infinite;
   }
-  @keyframes orbit5 {
+
+  @keyframes orbit5-mobile {
     from {
       transform: rotate(0deg) translateX(12px) rotate(0deg);
     }
