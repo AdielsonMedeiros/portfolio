@@ -16,7 +16,6 @@ const prev = document.querySelector('.prev');
 const playPause = document.querySelector('.playPause');
 const next = document.querySelector('.next');
 const audio = document.querySelector('audio');
-const volumeSlider = document.querySelector('.volume-slider');
 
 if (audio) audio.volume = 0.3;
 
@@ -69,7 +68,6 @@ const navigateSong = (direction) => {
 
 // Event listeners
 addListener(playPause, "click", () => songPlaying ? pauseSong() : playSong());
-addListener(volumeSlider, 'input', () => audio.volume = volumeSlider.value);
 addListener(prev, "click", () => navigateSong(-1));
 addListener(next, "click", () => navigateSong(1));
 
