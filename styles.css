@@ -1613,6 +1613,25 @@ body.mono-theme .img-port:hover .overlay {
     opacity: 0;
 }
 
+/* Mobile - overlay com opacidade reduzida para ver a imagem */
+@media screen and (max-width: 1020px) {
+    body.mono-theme .overlay {
+        opacity: 0 !important;
+        background: rgba(0, 0, 0, 0.85);
+        font-size: 18px;
+        padding: 15px;
+    }
+
+    body.mono-theme .img-port:active .overlay {
+        opacity: 1 !important;
+    }
+
+    /* Garantir que as imagens apareçam no mobile monocromático */
+    body.mono-theme .img-port {
+        background-position: center center;
+    }
+}
+
 /* Formulário minimalista */
 body.mono-theme form input,
 body.mono-theme form textarea {
