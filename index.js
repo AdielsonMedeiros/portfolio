@@ -1,175 +1,163 @@
-const btnMenu = document.getElementById('btn-menu');
-const menu = document.getElementById('menu-mobile');
-const overlay = document.getElementById('overlay-menu');
-const formulario = document.getElementById('form');
+// ==========================================
+// CONFIGURAÇÃO INICIAL E HELPERS
+// ==========================================
+
+// Helper para event listeners com null check
+const addListener = (element, event, handler, options) => {
+    if (element) element.addEventListener(event, handler, options);
+};
+
+// ==========================================
+// PLAYER DE MÚSICA
+// ==========================================
+
 const title = document.querySelector('.title');
 const prev = document.querySelector('.prev');
 const playPause = document.querySelector('.playPause');
 const next = document.querySelector('.next');
 const audio = document.querySelector('audio');
-const downloadCv = document.querySelector('.btn-contato a');
 const volumeSlider = document.querySelector('.volume-slider');
 
-
-audio.volume = 0.3;
+if (audio) audio.volume = 0.3;
 
 const songList = [
-    {
-        path: "./msc/interstellar.mp3",
-        songName: "interestelar",
-    },
-    {
-        path: "./msc/LiveInTheSpirit.mp3",
-        songName: "LiveInTheSpirit",
-    },
-    {
-        path: "./msc/skyfall.mp3",
-        songName: "skyfall",
-    },
-    {
-        path: "./msc/snowfall.mp3",
-        songName: "snowfall",
-    },
-    {
-        path: "./msc/ComoTudoDeveSer.mp3",
-        songName: "ComoTudoDeveSer",
-    },
-    {
-        path: "./msc/redbone.mp3",
-        songName: "redbone",
-    },
-    {
-        path: "./msc/LittleDarkAge.mp3",
-        songName: "LittleDarkAge",
-    },
-    {
-        path: "./msc/MidnightCity.mp3",
-        songName: "MidnightCity",
-    },
-    {
-        path: "./msc/SultansOfSwing.mp3",
-        songName: "SultansOfSwing",
-    },
-    {
-        path: "./msc/Consagração.mp3",
-        songName: "Consagração",
-    },
+    { path: "./msc/interstellar.mp3", songName: "interestelar" },
+    { path: "./msc/LiveInTheSpirit.mp3", songName: "LiveInTheSpirit" },
+    { path: "./msc/skyfall.mp3", songName: "skyfall" },
+    { path: "./msc/snowfall.mp3", songName: "snowfall" },
+    { path: "./msc/ComoTudoDeveSer.mp3", songName: "ComoTudoDeveSer" },
+    { path: "./msc/redbone.mp3", songName: "redbone" },
+    { path: "./msc/LittleDarkAge.mp3", songName: "LittleDarkAge" },
+    { path: "./msc/MidnightCity.mp3", songName: "MidnightCity" },
+    { path: "./msc/SultansOfSwing.mp3", songName: "SultansOfSwing" },
+    { path: "./msc/Consagração.mp3", songName: "Consagração" }
 ];
 
-let song_Playing = false;
+let songIndex = 0;
+let songPlaying = false;
 
-function playSong(){
-    song_Playing = true;
+const playSong = () => {
+    if (!audio) return;
+    songPlaying = true;
     audio.play();
-    playPause.classList.add('active');
-    playPause.innerHTML = '<ion-icon name="pause-outline"></ion-icon>';
-}
+    if (playPause) {
+        playPause.classList.add('active');
+        playPause.innerHTML = '<ion-icon name="pause-outline"></ion-icon>';
+    }
+};
 
-function pauseSong(){
-    song_Playing = false;
+const pauseSong = () => {
+    if (!audio) return;
+    songPlaying = false;
     audio.pause();
-    playPause.classList.remove('active');
-    playPause.innerHTML = '<ion-icon name="play-outline"></ion-icon>';
-}
+    if (playPause) {
+        playPause.classList.remove('active');
+        playPause.innerHTML = '<ion-icon name="play-outline"></ion-icon>';
+    }
+};
 
-// Helper para event listeners com null check
-function addListener(element, event, handler) {
-    if (element) element.addEventListener(event, handler);
-}
+const loadSong = (song) => {
+    if (title) title.textContent = song.songName;
+    if (audio) audio.src = song.path;
+};
 
-addListener(playPause, "click", () => (song_Playing ? pauseSong() : playSong()));
-addListener(volumeSlider, 'input', () => audio.volume = volumeSlider.value);
-
-function loadSong(songList){
-    title.textContent = songList.songName;
-    audio.src = songList.path;
-}
-
-let i = 0;
-
-if (audio && title) {
-    loadSong(songList[i]);
-}
-
-// Navegação de músicas consolidada
-function navigateSong(direction) {
-    i += direction;
-    if (i < 0) i = songList.length - 1;
-    if (i >= songList.length) i = 0;
-    loadSong(songList[i]);
+const navigateSong = (direction) => {
+    songIndex = (songIndex + direction + songList.length) % songList.length;
+    loadSong(songList[songIndex]);
     playSong();
-}
+};
 
+// Event listeners
+addListener(playPause, "click", () => songPlaying ? pauseSong() : playSong());
+addListener(volumeSlider, 'input', () => audio.volume = volumeSlider.value);
 addListener(prev, "click", () => navigateSong(-1));
 addListener(next, "click", () => navigateSong(1));
 
-downloadCv.addEventListener('click', function(event) {
+// Inicializa primeira música
+if (audio && title) loadSong(songList[songIndex]);
+
+// ==========================================
+// DOWNLOAD CV
+// ==========================================
+
+const downloadCv = document.querySelector('.btn-contato a');
+addListener(downloadCv, 'click', (event) => {
     event.preventDefault();
-    fetch('./cv').then(function(t) {
-        return t.blob().then((b) => {
-            let a = document.createElement("a");
-            a.href = URL.createObjectURL(b);
-            a.setAttribute("download", "Adielson_CV.pdf");
+    fetch('./cv')
+        .then(response => response.blob())
+        .then(blob => {
+            const a = document.createElement("a");
+            a.href = URL.createObjectURL(blob);
+            a.download = "Adielson_CV.pdf";
             a.click();
+            URL.revokeObjectURL(a.href);
         });
-    });
 });
 
-// Menu mobile
-function closeMenu() {
-    menu.classList.remove('abrir-menu');
+// ==========================================
+// MENU MOBILE
+// ==========================================
+
+const btnMenu = document.getElementById('btn-menu');
+const menu = document.getElementById('menu-mobile');
+const overlay = document.getElementById('overlay-menu');
+
+const closeMenu = () => menu?.classList.remove('abrir-menu');
+
+addListener(btnMenu, 'click', () => menu?.classList.add('abrir-menu'));
+addListener(menu, 'click', closeMenu);
+addListener(overlay, 'click', closeMenu);
+
+// ==========================================
+// SCROLL REVEAL
+// ==========================================
+
+if (typeof ScrollReveal !== 'undefined') {
+    ScrollReveal().reveal('.interface', {
+        duration: 1500,
+        reset: false
+    });
 }
 
-btnMenu.addEventListener('click', () => menu.classList.add('abrir-menu'));
-menu.addEventListener('click', closeMenu);
-overlay.addEventListener('click', closeMenu);
-
-ScrollReveal().reveal('.interface', {
-    duration: 1500,
-    reset: false
-});
+// ==========================================
+// BOTÃO VOLTAR AO TOPO
+// ==========================================
 
 const btnUp = document.querySelector('.btn-up');
 
-function checkScrollPosition() {
-    const windowHeight = window.innerHeight;
-    const scrollY = window.scrollY;
-    const bodyHeight = document.body.offsetHeight;
-    
-    if (windowHeight + scrollY >= bodyHeight - 1) {
-        btnUp.classList.add('show');
-    } else {
-        btnUp.classList.remove('show');
-    }
-}
+const checkScrollPosition = () => {
+    if (!btnUp) return;
+    const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 1;
+    btnUp.classList.toggle('show', atBottom);
+};
 
-window.addEventListener('scroll', checkScrollPosition);
+addListener(window, 'scroll', checkScrollPosition, { passive: true });
 
+// ==========================================
+// ANIMAÇÃO DAS ESTRELAS
+// ==========================================
 
-function espalharEstrelas() {
-    const estrelas = document.querySelectorAll('.bolhas span');
-    
-    estrelas.forEach(estrela => {
-        const posicaoHorizontal = Math.random() * 100;
-        const atrasoAnimacao = Math.random() * 20;
-        const duracaoAnimacao = 20 + Math.random() * 10;
-
-        estrela.style.left = `${posicaoHorizontal}%`;
-        estrela.style.animationDelay = `${atrasoAnimacao}s`;
-        estrela.style.animationDuration = `${duracaoAnimacao}s`;
+const espalharEstrelas = () => {
+    document.querySelectorAll('.bolhas span').forEach(estrela => {
+        estrela.style.left = `${Math.random() * 100}%`;
+        estrela.style.animationDelay = `${Math.random() * 20}s`;
+        estrela.style.animationDuration = `${20 + Math.random() * 10}s`;
     });
-}
+};
 
 document.addEventListener('DOMContentLoaded', espalharEstrelas);
 
-// Theme Switcher
+// ==========================================
+// THEME SWITCHER
+// ==========================================
+
 const themeToggle = document.getElementById('theme-toggle');
 const themeToggleMobile = document.getElementById('theme-toggle-mobile');
 const themeLabelDesktop = document.getElementById('theme-label-desktop');
 const themeLabelMobile = document.getElementById('theme-label-mobile');
 const body = document.body;
 
-// Verificar se há tema salvo no localStorage
+// Carregar tema salvo
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'mono') {
     body.classList.add('mono-theme');
@@ -180,33 +168,24 @@ if (savedTheme === 'mono') {
 }
 
 // Função para mudar o tema
-function changeTheme(isChecked) {
-    if (isChecked) {
-        body.classList.add('mono-theme');
-        localStorage.setItem('theme', 'mono');
-        if (themeLabelDesktop) themeLabelDesktop.textContent = 'Normal';
-        if (themeLabelMobile) themeLabelMobile.textContent = 'Normal';
-    } else {
-        body.classList.remove('mono-theme');
-        localStorage.setItem('theme', 'color');
-        if (themeLabelDesktop) themeLabelDesktop.textContent = 'Mono';
-        if (themeLabelMobile) themeLabelMobile.textContent = 'Mono';
-    }
-    // Sincronizar os dois toggles
+const changeTheme = (isChecked) => {
+    body.classList.toggle('mono-theme', isChecked);
+    localStorage.setItem('theme', isChecked ? 'mono' : 'color');
+
+    const label = isChecked ? 'Normal' : 'Mono';
+    if (themeLabelDesktop) themeLabelDesktop.textContent = label;
+    if (themeLabelMobile) themeLabelMobile.textContent = label;
+
+    // Sincronizar toggles
     if (themeToggle) themeToggle.checked = isChecked;
     if (themeToggleMobile) themeToggleMobile.checked = isChecked;
-}
+};
 
-// Helper para adicionar event listeners
-function addThemeListener(element, event, callback) {
-    if (element) element.addEventListener(event, callback);
-}
-
-// Event listeners para theme switcher
-addThemeListener(themeToggle, 'change', () => changeTheme(themeToggle.checked));
-addThemeListener(themeToggleMobile, 'change', () => changeTheme(themeToggleMobile.checked));
-addThemeListener(themeLabelDesktop, 'click', () => changeTheme(!themeToggle.checked));
-addThemeListener(themeLabelMobile, 'click', () => changeTheme(!themeToggleMobile.checked));
+// Event listeners
+addListener(themeToggle, 'change', () => changeTheme(themeToggle.checked));
+addListener(themeToggleMobile, 'change', () => changeTheme(themeToggleMobile.checked));
+addListener(themeLabelDesktop, 'click', () => changeTheme(!themeToggle?.checked));
+addListener(themeLabelMobile, 'click', () => changeTheme(!themeToggleMobile?.checked));
 
 // ==========================================
 // CARROSSEL DE PORTFÓLIO
@@ -220,24 +199,28 @@ const dotsContainer = document.querySelector('.carousel-dots');
 
 if (carouselTrack && carouselItems.length > 0) {
     let currentIndex = 0;
-    let itemsPerView = 3; // Desktop padrão
+    let itemsPerView = window.innerWidth <= 1020 ? 1 : 3;
     let isDragging = false;
     let startPos = 0;
     let currentTranslate = 0;
     let prevTranslate = 0;
 
-    // Função para atualizar itemsPerView baseado na largura da tela
-    function updateItemsPerView() {
-        if (window.innerWidth <= 1020) {
-            itemsPerView = 1;
-        } else {
-            itemsPerView = 3;
-        }
-        updateCarousel();
-    }
+    const updateDots = () => {
+        const dots = document.querySelectorAll('.dot');
+        const activeIndex = Math.floor(currentIndex / itemsPerView);
+        dots.forEach((dot, index) => dot.classList.toggle('active', index === activeIndex));
+    };
 
-    // Criar dots
-    function createDots() {
+    const updateCarousel = () => {
+        const gap = window.innerWidth <= 1020 ? 0 : 30;
+        const totalGaps = gap * (itemsPerView - 1);
+        const itemWidth = (carouselTrack.offsetWidth - totalGaps) / itemsPerView;
+        const translateX = -(currentIndex * (itemWidth + gap));
+        carouselTrack.style.transform = `translateX(${translateX}px)`;
+        updateDots();
+    };
+
+    const createDots = () => {
         if (!dotsContainer) return;
         dotsContainer.innerHTML = '';
         const totalDots = Math.ceil(carouselItems.length / itemsPerView);
@@ -246,77 +229,57 @@ if (carouselTrack && carouselItems.length > 0) {
             const dot = document.createElement('div');
             dot.classList.add('dot');
             if (i === 0) dot.classList.add('active');
-            dot.addEventListener('click', () => goToSlide(i));
+            dot.addEventListener('click', () => {
+                currentIndex = i * itemsPerView;
+                if (currentIndex >= carouselItems.length) {
+                    currentIndex = carouselItems.length - itemsPerView;
+                }
+                updateCarousel();
+            });
             dotsContainer.appendChild(dot);
         }
-    }
+    };
 
-    // Atualizar dots ativos
-    function updateDots() {
-        const dots = document.querySelectorAll('.dot');
-        const activeIndex = Math.floor(currentIndex / itemsPerView);
-        dots.forEach((dot, index) => {
-            dot.classList.toggle('active', index === activeIndex);
-        });
-    }
-
-    // Atualizar carrossel
-    function updateCarousel() {
-        const gap = window.innerWidth <= 1020 ? 0 : 30;
-        const totalGaps = gap * (itemsPerView - 1);
-        const itemWidth = (carouselTrack.offsetWidth - totalGaps) / itemsPerView;
-        const translateX = -(currentIndex * (itemWidth + gap));
-        carouselTrack.style.transform = `translateX(${translateX}px)`;
-        updateDots();
-    }
-
-    // Ir para slide específico
-    function goToSlide(dotIndex) {
-        currentIndex = dotIndex * itemsPerView;
-        if (currentIndex >= carouselItems.length) {
-            currentIndex = carouselItems.length - itemsPerView;
-        }
-        updateCarousel();
-    }
-
-    // Navegação do carrossel consolidada
-    function navigateSlide(direction) {
+    const navigateSlide = (direction) => {
         if (direction > 0) {
             currentIndex = currentIndex < carouselItems.length - itemsPerView ? currentIndex + itemsPerView : 0;
         } else {
             currentIndex = currentIndex > 0 ? currentIndex - itemsPerView : Math.floor((carouselItems.length - 1) / itemsPerView) * itemsPerView;
         }
         updateCarousel();
-    }
+    };
 
-    // Event listeners para botões
+    const updateItemsPerView = () => {
+        itemsPerView = window.innerWidth <= 1020 ? 1 : 3;
+        if (currentIndex >= carouselItems.length - itemsPerView) {
+            currentIndex = Math.max(0, carouselItems.length - itemsPerView);
+        }
+        createDots();
+        updateCarousel();
+    };
+
+    // Event listeners
     addListener(nextBtn, 'click', () => navigateSlide(1));
     addListener(prevBtn, 'click', () => navigateSlide(-1));
 
-    // Suporte a touch/swipe
+    // Touch/swipe support
     carouselTrack.addEventListener('touchstart', (e) => {
         isDragging = true;
         startPos = e.touches[0].clientX;
         carouselTrack.style.transition = 'none';
-    });
+    }, { passive: true });
 
     carouselTrack.addEventListener('touchmove', (e) => {
         if (!isDragging) return;
-        const currentPosition = e.touches[0].clientX;
-        currentTranslate = prevTranslate + currentPosition - startPos;
-    });
+        currentTranslate = prevTranslate + e.touches[0].clientX - startPos;
+    }, { passive: true });
 
     carouselTrack.addEventListener('touchend', () => {
         isDragging = false;
         const movedBy = currentTranslate - prevTranslate;
 
-        if (movedBy < -50 && currentIndex < carouselItems.length - itemsPerView) {
-            navigateSlide(1);
-        }
-
-        if (movedBy > 50 && currentIndex > 0) {
-            navigateSlide(-1);
-        }
+        if (movedBy < -50 && currentIndex < carouselItems.length - itemsPerView) navigateSlide(1);
+        if (movedBy > 50 && currentIndex > 0) navigateSlide(-1);
 
         carouselTrack.style.transition = 'transform 0.5s ease';
         prevTranslate = currentTranslate;
@@ -328,24 +291,90 @@ if (carouselTrack && carouselItems.length > 0) {
         if (e.key === 'ArrowRight') navigateSlide(1);
     });
 
+    // Resize com debounce
+    let resizeTimeout;
+    addListener(window, 'resize', () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(updateItemsPerView, 250);
+    });
+
     // Inicializar
     createDots();
     updateItemsPerView();
+}
 
-    // Atualizar ao redimensionar
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            const oldItemsPerView = itemsPerView;
-            updateItemsPerView();
+// ==========================================
+// ROTAÇÃO 360 GRAUS - BILLY COM TROCA DE IMAGEM
+// ==========================================
 
-            // Resetar índice se necessário
-            if (currentIndex >= carouselItems.length - itemsPerView) {
-                currentIndex = Math.max(0, carouselItems.length - itemsPerView);
-            }
+const imgTopoSite = document.querySelector('.img-topo-site img');
 
-            createDots();
-        }, 250);
+if (imgTopoSite) {
+    let isImageChanged = false;
+    let isAnimating = false;
+
+    const rotateAndChangeImage = (newSrc, newAlt, rotation) => {
+        if (isAnimating) return;
+        isAnimating = true;
+
+        // Remove animação de flutuação
+        imgTopoSite.style.animation = 'none';
+        imgTopoSite.offsetHeight; // Force reflow
+
+        // Rotação
+        imgTopoSite.style.transform = `rotate(${rotation}deg)`;
+
+        // Fade out na metade da rotação
+        setTimeout(() => imgTopoSite.style.opacity = '0', 400);
+
+        // Troca de imagem
+        setTimeout(() => {
+            imgTopoSite.src = newSrc;
+            imgTopoSite.alt = newAlt;
+            imgTopoSite.style.transform = 'rotate(0deg)';
+
+            setTimeout(() => imgTopoSite.style.opacity = '1', 50);
+
+            imgTopoSite.style.animation = 'flutuar 3s ease-in-out infinite alternate';
+            isImageChanged = !isImageChanged;
+            isAnimating = false;
+        }, 800);
+    };
+
+    addListener(imgTopoSite, 'mouseenter', () => {
+        if (!isImageChanged) {
+            rotateAndChangeImage('img/adielson_medeiros.jpg', 'Adielson Medeiros', 360);
+        }
+    });
+
+    addListener(imgTopoSite, 'mouseleave', () => {
+        if (isImageChanged) {
+            rotateAndChangeImage('img/billypf.png', 'billy programador', -360);
+        }
+    });
+}
+
+// ==========================================
+// ROTAÇÃO 360 GRAUS - ASTRONAUTA
+// ==========================================
+
+const imgSobre = document.querySelector('.img-sobre img');
+
+if (imgSobre) {
+    let isRotating = false;
+
+    addListener(imgSobre, 'mouseenter', () => {
+        if (isRotating) return;
+        isRotating = true;
+
+        imgSobre.style.animation = 'none';
+        imgSobre.offsetHeight; // Force reflow
+        imgSobre.style.transform = 'rotate(360deg)';
+
+        setTimeout(() => {
+            imgSobre.style.transform = 'rotate(0deg)';
+            imgSobre.style.animation = 'flutuar 4s ease-in-out infinite alternate';
+            isRotating = false;
+        }, 800);
     });
 }

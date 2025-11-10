@@ -132,8 +132,9 @@ body{
 
 
 .interface{
-    max-width: 1280px;
+    max-width: 1400px;
     margin: 0 auto;
+    padding: 0 4%;
 }
 
 .flex {
@@ -546,16 +547,27 @@ header > .interface{
 }
 
 .topo-do-site {
-    padding: 120px 4% 80px;
+    padding: 120px 0 80px;
     min-height: 90vh;
     display: flex;
     align-items: center;
 }
 
+.topo-do-site .interface {
+    width: 100%;
+}
+
 section .topo-do-site .flex{
     align-items: center;
-    justify-content: center;
-    gap: 100px;
+    justify-content: space-between;
+    gap: 60px;
+    width: 100%;
+}
+
+.topo-do-site .txt-topo-site{
+    flex: 1 1 auto;
+    max-width: 750px;
+    min-width: 0;
 }
 
 .topo-do-site h1{
@@ -579,21 +591,27 @@ section .topo-do-site .flex{
     margin: 25px 0;
     font-size: 16px;
     line-height: 1.7;
-    max-width: 550px;
+    max-width: 100%;
+}
+
+.topo-do-site .img-topo-site{
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+    margin-left: auto;
 }
 
 .topo-do-site .img-topo-site img{
     position: relative;
     animation: flutuar 3s ease-in-out infinite alternate;
     border-radius: 50%;
-    max-width: 500px;
     width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
-    transition: transform 0.3s ease;
-}
-
-.topo-do-site .img-topo-site img:hover {
-    transform: scale(1.02);
+    transition: transform 0.8s ease, opacity 0.4s ease;
+    cursor: pointer;
 }
 
 @keyframes flutuar {
@@ -659,11 +677,8 @@ section .flex img{
     animation: flutuar 4s ease-in-out infinite alternate;
     box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
     border: 2px solid rgba(138, 43, 226, 0.2);
-    transition: transform 0.3s ease;
-}
-
-section .flex img:hover{
-    transform: scale(1.02);
+    transition: transform 0.8s ease;
+    cursor: pointer;
 }
 
 .sobre{
@@ -702,6 +717,7 @@ section .sobre .flex{
     line-height: 1.8;
     font-size: 16px;
 }
+
 
 .btn-social button{
     width: 50px;
@@ -1139,17 +1155,25 @@ a {
         font-size: 28px;
     }
 
+    body.mono-theme .topo-do-site .img-topo-site{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-width: 350px;
+        margin: 0 auto;
+    }
+
     .topo-do-site .flex{
-        gap: 40px;
+        gap: 50px;
+    }
+
+    .topo-do-site .txt-topo-site{
+        max-width: 100%;
     }
 
     .topo-do-site {
-        padding: 20px 8%;
-    }
-    
-    .topo-do-site {
         min-height: auto;
-        padding: 60px 8%;
+        padding: 60px 0;
     }
     
     .topo-do-site h1{
@@ -1161,8 +1185,21 @@ a {
         font-size: 16px;
     }
     
+    .topo-do-site .img-topo-site{
+        width: 100%;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        max-width: 350px;
+        margin: 0 auto;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
     .topo-do-site .img-topo-site img{
         width: 100%;
+        height: 100%;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
     }
 
     .especialidades{
@@ -1420,7 +1457,7 @@ body.mono-theme .btn-contato-topo button:hover {
 
 /* Topo do site com layout grid */
 body.mono-theme .topo-do-site {
-    padding: 80px 4% 60px;
+    padding: 80px 0 60px;
     min-height: 80vh;
 }
 
@@ -1442,6 +1479,13 @@ body.mono-theme .topo-do-site p {
     letter-spacing: 0.5px;
 }
 
+body.mono-theme .topo-do-site .img-topo-site{
+    width: 400px;
+    height: 400px;
+    flex-shrink: 0;
+    margin-left: auto;
+}
+
 body.mono-theme .topo-do-site .img-topo-site img {
     filter: grayscale(100%) contrast(1.2);
     border-radius: 50%;
@@ -1449,12 +1493,11 @@ body.mono-theme .topo-do-site .img-topo-site img {
     box-shadow: none;
     animation: none;
     clip-path: none;
-    transition: transform 0.8s ease;
-}
-
-body.mono-theme .topo-do-site .img-topo-site img:hover {
-    transform: rotate(360deg) scale(1.05);
-    box-shadow: none;
+    transition: transform 0.8s ease, opacity 0.4s ease;
+    cursor: pointer;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
 }
 
 /* Títulos com estilo minimalista */
@@ -1560,13 +1603,9 @@ body.mono-theme .sobre .flex img {
     border: none;
     box-shadow: none;
     filter: grayscale(100%) contrast(1.2);
-    animation: none;
+    animation: flutuar 4s ease-in-out infinite alternate;
     transition: transform 0.8s ease;
-}
-
-body.mono-theme .sobre .flex img:hover {
-    transform: rotate(360deg) scale(1.05);
-    box-shadow: none;
+    cursor: pointer;
 }
 
 /* Botões sociais quadrados */
