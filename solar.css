@@ -1,7 +1,6 @@
 .solar {
     padding: 500px 4%;
     margin-top: 0;
-    
 }
 
 .solar .interface{
@@ -10,9 +9,6 @@
     margin-bottom: 200px;
 }
 
-
-
-    
 .sun {
     height: 120px;
     width: 120px;
@@ -302,21 +298,12 @@
     height: 620px;
     width: 620px;
   }
-  
 
   /*COMEÇO DA RESPONSIVIDADE PARA MOBILE*/
   
   @media screen and (max-width: 1020px) {
     .solar {
         padding: 200px 4%;
-        margin-top: 0;
-        
-    }
-    
-    .solar .interface{
-        align-items: center;
-        justify-content: center;
-        
     }
   
     .sun, .mercury, .venus, .earth,  .mars,  .jupiter,  .saturn,  .urans,  .neptune{
@@ -500,8 +487,7 @@
     height: 360px;
     width: 360px;
   }
-  
-  
+
   .earth-circle{
     height: 24px;
     width: 24px;
@@ -532,5 +518,4 @@
       transform: rotate(360deg) translateX(12px) rotate(-360deg);
     }
   }
-    
   }

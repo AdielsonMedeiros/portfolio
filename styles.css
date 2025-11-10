@@ -44,19 +44,25 @@ body{
     background-color: #000;
     min-height: 100vh;
     position: relative;
-    transition: all 0.3s ease;
+    transition: background-color 0.5s ease, opacity 0.2s ease;
 }
 
-
-#codigoCanvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
+/* Transições globais para mudança de tema */
+* {
+    transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease, filter 0.5s ease;
 }
 
+.topo-do-site .img-topo-site img {
+    transition: transform 0.8s ease, opacity 0.4s ease, filter 0.5s ease;
+}
+
+.img-sobre img, .carousel-track {
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+button, .btn-enviar input[type=submit] {
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.5s ease, color 0.5s ease;
+}
 
 
 .container{
@@ -85,7 +91,6 @@ body{
     bottom: 0;
     opacity: 0;
     animation: animar-estrelas linear infinite, piscar 3s ease-in-out infinite;
-    will-change: transform, opacity;
 }
 
 .bolhas span:nth-of-type(3n){
@@ -255,23 +260,10 @@ form .btn-enviar input:hover[type=submit],
     transform: scale(1.05);
 }
 
-button, form .btn-enviar input[type=submit] {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-header .interface .logo a img {
-    filter: blur(0);
-    transition: .2s;
-}
-
 header .interface .logo a:hover img {
     filter: drop-shadow(0px 0px 20px var(--primary-color));
     transform: scale(1.05);
 }
-
-
-
-
 
 h2.titulo{
     color: #fff;
@@ -460,6 +452,11 @@ header > .interface{
     height: 28px;
     display: inline-block;
     flex-shrink: 0;
+    transition: transform 0.2s ease;
+}
+
+.switch-mobile:active {
+    transform: scale(0.95);
 }
 
 .switch-mobile input {
@@ -1102,65 +1099,13 @@ a {
     }
 
     body.mono-theme .music .title {
-        font-size: 13px;
         color: #fff;
         letter-spacing: 2.5px;
         font-weight: 600;
     }
 
-    body.mono-theme .especialidades .especialidades-box p {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
-    body.mono-theme .especialidades .especialidades-box h3 {
-        font-size: 22px;
-    }
-
-    body.mono-theme .sobre .txt-sobre p {
-        font-size: 16px;
-        line-height: 1.9;
-    }
-
-    body.mono-theme .sobre .txt-sobre h2 {
-        font-size: 30px;
-    }
-
-    body.mono-theme .topo-do-site h1 {
-        font-size: 30px;
-    }
-
-    body.mono-theme .topo-do-site p {
-        font-size: 16px;
-        line-height: 1.8;
-    }
-
     body.mono-theme .overlay {
-        font-size: 24px;
         letter-spacing: 3px;
-    }
-
-    body.mono-theme form input,
-    body.mono-theme form textarea {
-        font-size: 15px;
-        line-height: 1.6;
-    }
-
-    body.mono-theme form input::placeholder,
-    body.mono-theme form textarea::placeholder {
-        font-size: 15px;
-    }
-
-    body.mono-theme h2.titulo {
-        font-size: 28px;
-    }
-
-    body.mono-theme .topo-do-site .img-topo-site{
-        width: 100%;
-        height: auto;
-        aspect-ratio: 1 / 1;
-        max-width: 350px;
-        margin: 0 auto;
     }
 
     .topo-do-site .flex{
@@ -1336,6 +1281,11 @@ a {
     position: relative;
     width: 50px;
     height: 26px;
+    transition: transform 0.2s ease;
+}
+
+.switch:active {
+    transform: scale(0.95);
 }
 
 .switch input {
@@ -1394,7 +1344,6 @@ body.mono-theme {
 
 /* Header mais compacto e minimalista */
 body.mono-theme header {
-    padding: 20px 4%;
     background: #000;
     border-bottom: 2px solid #333;
     backdrop-filter: none;
@@ -1403,7 +1352,6 @@ body.mono-theme header {
 body.mono-theme .theme-label {
     color: #fff;
     font-family: 'Courier New', monospace;
-    font-size: 12px;
     letter-spacing: 2px;
 }
 
@@ -1418,7 +1366,6 @@ body.mono-theme .logo img {
 /* Menu com estilo minimalista */
 body.mono-theme .menu-desktop a {
     color: #aaa;
-    font-size: 12px;
     font-weight: 400;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1441,8 +1388,6 @@ body.mono-theme .btn-contato-topo button {
     font-family: 'Courier New', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 11px;
-    padding: 14px 30px;
     background: #fff;
     color: #000;
     border: 2px solid #fff;
@@ -1456,16 +1401,9 @@ body.mono-theme .btn-contato-topo button:hover {
 }
 
 /* Topo do site com layout grid */
-body.mono-theme .topo-do-site {
-    padding: 80px 0 60px;
-    min-height: 80vh;
-}
-
 body.mono-theme .topo-do-site h1 {
     font-family: 'Courier New', monospace;
-    font-size: 36px;
     font-weight: 700;
-    line-height: 1.1;
     letter-spacing: -1px;
     color: #fff;
     text-transform: uppercase;
@@ -1473,8 +1411,6 @@ body.mono-theme .topo-do-site h1 {
 
 body.mono-theme .topo-do-site p {
     color: #999;
-    font-size: 14px;
-    line-height: 1.8;
     font-family: 'Courier New', monospace;
     letter-spacing: 0.5px;
 }
@@ -1503,11 +1439,9 @@ body.mono-theme .topo-do-site .img-topo-site img {
 /* Títulos com estilo minimalista */
 body.mono-theme h2.titulo {
     font-family: 'Courier New', monospace;
-    font-size: 32px;
     font-weight: 700;
     letter-spacing: 3px;
     text-transform: uppercase;
-    margin-top: 60px;
     position: relative;
     display: inline-block;
     padding-bottom: 10px;
@@ -1530,15 +1464,10 @@ body.mono-theme h2.titulo span {
 }
 
 /* Especialidades com layout grid diferente */
-body.mono-theme .especialidades {
-    padding: 80px 4%;
-}
-
 body.mono-theme .especialidades .especialidades-box {
     border-radius: 0;
     background: #000;
     border: 2px solid #333;
-    padding: 35px 25px;
     box-shadow: 6px 6px 0 #1a1a1a;
     transition: all 0.3s ease;
 }
@@ -1552,12 +1481,10 @@ body.mono-theme .especialidades .especialidades-box:hover {
 
 body.mono-theme .especialidades .especialidades-box i {
     color: #fff;
-    font-size: 50px;
 }
 
 body.mono-theme .especialidades .especialidades-box h3 {
     font-family: 'Courier New', monospace;
-    font-size: 20px;
     font-weight: 700;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -1565,27 +1492,20 @@ body.mono-theme .especialidades .especialidades-box h3 {
 
 body.mono-theme .especialidades .especialidades-box p {
     color: #999;
-    font-size: 13px;
-    line-height: 1.6;
     font-family: 'Courier New', monospace;
 }
 
 /* Seção Sobre com layout alterado */
 body.mono-theme .sobre {
-    padding: 100px 4%;
     background: #000;
     border-top: 2px solid #333;
     border-bottom: 2px solid #333;
 }
 
-body.mono-theme .sobre .txt-sobre h2 {
-    font-family: 'Courier New', monospace;
-    font-size: 32px;
-    letter-spacing: 1px;
-    line-height: 1.2;
-}
-
+body.mono-theme .sobre .txt-sobre h2,
 body.mono-theme .sobre .txt-sobre h2 span {
+    font-family: 'Courier New', monospace;
+    letter-spacing: 1px;
     color: #fff;
     background: none;
     -webkit-text-fill-color: #fff;
@@ -1593,8 +1513,6 @@ body.mono-theme .sobre .txt-sobre h2 span {
 
 body.mono-theme .sobre .txt-sobre p {
     color: #aaa;
-    font-size: 14px;
-    line-height: 1.7;
     font-family: 'Courier New', monospace;
 }
 
@@ -1626,10 +1544,6 @@ body.mono-theme .btn-social button:hover {
 }
 
 /* Portfólio com grid alterado */
-body.mono-theme .portfolio {
-    padding: 80px 4%;
-}
-
 body.mono-theme .carousel-btn {
     background: transparent;
     border: none;
@@ -1637,18 +1551,13 @@ body.mono-theme .carousel-btn {
     box-shadow: none;
 }
 
-body.mono-theme .carousel-btn i {
-    font-size: 32px;
+body.mono-theme .carousel-btn:hover,
+body.mono-theme .carousel-btn:hover i {
+    color: #fff;
 }
 
 body.mono-theme .carousel-btn:hover {
-    background: transparent;
-    color: #fff;
     transform: translateY(-50%) scale(1.2);
-}
-
-body.mono-theme .carousel-btn:hover i {
-    color: #fff;
 }
 
 body.mono-theme .carousel-wrapper {
@@ -1690,7 +1599,6 @@ body.mono-theme .overlay {
     background: rgba(0, 0, 0, 0.98);
     border-radius: 0;
     font-family: 'Courier New', monospace;
-    font-size: 28px;
     font-weight: 700;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -1698,7 +1606,6 @@ body.mono-theme .overlay {
     transition: opacity 0.5s ease;
     border: 2px solid #fff;
     border-width: 0 2px 2px 0;
-    line-height: 1.4;
     padding: 20px;
 }
 
@@ -1707,10 +1614,6 @@ body.mono-theme .img-port:hover .overlay {
 }
 
 /* Formulário minimalista */
-body.mono-theme .formulario {
-    padding: 80px 4%;
-}
-
 body.mono-theme form input,
 body.mono-theme form textarea {
     border-radius: 0;
@@ -1718,8 +1621,6 @@ body.mono-theme form textarea {
     border: 2px solid #333;
     color: #fff;
     font-family: 'Courier New', monospace;
-    font-size: 13px;
-    padding: 15px 18px;
 }
 
 body.mono-theme form input:focus,
@@ -1738,7 +1639,6 @@ body.mono-theme form .btn-enviar input[type=submit] {
     font-family: 'Courier New', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 12px;
 }
 
 body.mono-theme form .btn-enviar input[type=submit]:hover {
@@ -1748,7 +1648,6 @@ body.mono-theme form .btn-enviar input[type=submit]:hover {
 
 /* Footer minimalista */
 body.mono-theme footer {
-    padding: 60px 4% 30px;
     background: #000;
     border-top: 2px solid #333;
 }
@@ -1759,7 +1658,6 @@ body.mono-theme .footer-bottom {
 
 body.mono-theme .footer-bottom p {
     font-family: 'Courier New', monospace;
-    font-size: 12px;
     letter-spacing: 1px;
 }
 
@@ -1799,7 +1697,6 @@ body.mono-theme .menu-mobile nav ul li a {
     font-family: 'Courier New', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
-    font-size: 16px;
     border-bottom: 1px solid #222;
 }
 
@@ -1815,7 +1712,6 @@ body.mono-theme .menu-mobile-theme {
 body.mono-theme .theme-label-mobile {
     font-family: 'Courier New', monospace;
     color: #fff;
-    font-size: 16px;
     letter-spacing: 3px;
 }
 
@@ -1832,20 +1728,6 @@ body.mono-theme .slider-mobile:hover {
     background: rgba(255, 255, 255, 0.1);
 }
 
-@media screen and (max-width: 480px) {
-    body.mono-theme .theme-label-mobile {
-        font-size: 14px;
-    }
-
-    body.mono-theme .carousel-btn {
-        width: 35px;
-        height: 35px;
-    }
-
-    body.mono-theme .carousel-btn i {
-        font-size: 24px;
-    }
-}
 
 body.mono-theme .btn-up img {
     filter: grayscale(100%) brightness(1.5);
@@ -1914,10 +1796,6 @@ body.mono-theme .earth-circle {
 body.mono-theme .solar .interface p {
     color: #ccc;
     font-family: 'Courier New', monospace;
-    font-size: 11px;
     letter-spacing: 2px;
     text-transform: uppercase;
 }
-
-
-

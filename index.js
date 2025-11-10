@@ -155,28 +155,61 @@ const themeLabelDesktop = document.getElementById('theme-label-desktop');
 const themeLabelMobile = document.getElementById('theme-label-mobile');
 const body = document.body;
 
-// Carregar tema salvo
-const savedTheme = localStorage.getItem('theme');
-if (savedTheme === 'mono') {
-    body.classList.add('mono-theme');
-    if (themeToggle) themeToggle.checked = true;
-    if (themeToggleMobile) themeToggleMobile.checked = true;
-    if (themeLabelDesktop) themeLabelDesktop.textContent = 'Normal';
-    if (themeLabelMobile) themeLabelMobile.textContent = 'Normal';
-}
+// Sempre inicia no tema normal (colorido)
+// Remove a classe mono-theme se existir
+body.classList.remove('mono-theme');
+if (themeToggle) themeToggle.checked = false;
+if (themeToggleMobile) themeToggleMobile.checked = false;
+if (themeLabelDesktop) themeLabelDesktop.textContent = 'Mono';
+if (themeLabelMobile) themeLabelMobile.textContent = 'Mono';
+localStorage.setItem('theme', 'color');
 
-// Função para mudar o tema
+// Função para mudar o tema com transição suave
 const changeTheme = (isChecked) => {
-    body.classList.toggle('mono-theme', isChecked);
-    localStorage.setItem('theme', isChecked ? 'mono' : 'color');
+    // Cria overlay de transição
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #000;
+        opacity: 0;
+        transition: opacity 0.4s ease;
+        z-index: 999999;
+        pointer-events: none;
+    `;
+    document.body.appendChild(overlay);
 
-    const label = isChecked ? 'Normal' : 'Mono';
-    if (themeLabelDesktop) themeLabelDesktop.textContent = label;
-    if (themeLabelMobile) themeLabelMobile.textContent = label;
+    // Fade in
+    requestAnimationFrame(() => {
+        overlay.style.opacity = '0.7';
+    });
 
-    // Sincronizar toggles
-    if (themeToggle) themeToggle.checked = isChecked;
-    if (themeToggleMobile) themeToggleMobile.checked = isChecked;
+    setTimeout(() => {
+        // Muda o tema
+        body.classList.toggle('mono-theme', isChecked);
+        localStorage.setItem('theme', isChecked ? 'mono' : 'color');
+
+        const label = isChecked ? 'Normal' : 'Mono';
+        if (themeLabelDesktop) themeLabelDesktop.textContent = label;
+        if (themeLabelMobile) themeLabelMobile.textContent = label;
+
+        // Sincronizar toggles
+        if (themeToggle) themeToggle.checked = isChecked;
+        if (themeToggleMobile) themeToggleMobile.checked = isChecked;
+
+        // Fade out
+        setTimeout(() => {
+            overlay.style.opacity = '0';
+
+            // Remove overlay
+            setTimeout(() => {
+                document.body.removeChild(overlay);
+            }, 400);
+        }, 100);
+    }, 400);
 };
 
 // Event listeners
