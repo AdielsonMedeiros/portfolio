@@ -91,6 +91,7 @@ button, .btn-enviar input[type=submit] {
     bottom: 0;
     opacity: 0;
     animation: animar-estrelas linear infinite, piscar 3s ease-in-out infinite;
+    will-change: transform, opacity;
 }
 
 .bolhas span:nth-of-type(3n){
@@ -609,6 +610,7 @@ section .topo-do-site .flex{
     box-shadow: 0 20px 60px rgba(138, 43, 226, 0.3);
     transition: transform 0.8s ease, opacity 0.4s ease;
     cursor: pointer;
+    will-change: transform;
 }
 
 @keyframes flutuar {
@@ -676,6 +678,7 @@ section .flex img{
     border: 2px solid rgba(138, 43, 226, 0.2);
     transition: transform 0.8s ease;
     cursor: pointer;
+    will-change: transform;
 }
 
 .sobre{
@@ -756,6 +759,7 @@ section .sobre .flex{
     display: flex;
     gap: 30px;
     transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .carousel-item {
