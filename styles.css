@@ -477,7 +477,7 @@ header > .interface{
     background: rgba(255, 255, 255, 0.15);
     border: 2px solid rgba(255, 255, 255, 0.3);
     transition: all 0.4s;
-    border-radius: 34px;
+    border-radius: 4px;
 }
 
 .slider-mobile:before {
@@ -489,7 +489,7 @@ header > .interface{
     bottom: 2px;
     background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
     transition: all 0.4s;
-    border-radius: 50%;
+    border-radius: 2px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
 }
 
