@@ -752,7 +752,7 @@ section .sobre .flex{
 
 .carousel-wrapper {
     overflow: hidden;
-    border-radius: 20px;
+    border-radius: 0; /* Sem borda arredondada */
 }
 
 .carousel-track {
@@ -765,10 +765,13 @@ section .sobre .flex{
 .carousel-item {
     min-width: calc((100% - 60px) / 3);
     flex-shrink: 0;
+    height: 460px; /* Altura fixa para todos os cards */
 }
 
 .carousel-item .img-port {
     width: 100%;
+    height: 100%; /* Preenche todo o container */
+    max-width: none; /* Remove limite de largura */
     margin: 0;
 }
 
@@ -848,18 +851,19 @@ section .sobre .flex{
     max-width: 360px;
     height: 460px;
     background-size: cover;
-    background-position: 100% 0%;
+    background-position: 100% 0%; /* Volta ao efeito de scroll original */
     cursor: pointer;
-    border-radius: 50px;
+    border-radius: 0; /* Teste: Sem borda arredondada */
     position: relative;
     overflow: hidden;
     transition: background-position 2.5s ease-in-out, transform 0.3s ease;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: none; /* Remove a linha branca */
 }
 
 .img-port:hover{
     background-position: 100% 100%;
     transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px var(--main-color);
 }
 
 .overlay{
@@ -868,8 +872,8 @@ section .sobre .flex{
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    border-radius: 50px;
+    background: rgba(0, 0, 0, 0.6); /* Overlay mais leve */
+    border-radius: 0;
     display: flex;
     flex-direction: column;
     align-items: center;

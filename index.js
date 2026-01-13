@@ -376,6 +376,43 @@ if (carouselTrack && carouselItems.length > 0) {
         resizeTimeout = setTimeout(updateItemsPerView, 250);
     });
 
+    // ==========================================
+    // AUTOPLAY INTELIGENTE
+    // ==========================================
+    let autoplayInterval;
+    const AUTOPLAY_DELAY = 5000; // 5 segundos
+
+    const startAutoplay = () => {
+        stopAutoplay(); // Limpa qualquer intervalo anterior
+        autoplayInterval = setInterval(() => {
+            navigateSlide(1); // Avança para o próximo
+        }, AUTOPLAY_DELAY);
+    };
+
+    const stopAutoplay = () => {
+        if (autoplayInterval) {
+            clearInterval(autoplayInterval);
+            autoplayInterval = null;
+        }
+    };
+
+    // Pausa no hover (mouse)
+    const carouselContainer = document.querySelector('.carousel-container');
+    if (carouselContainer) {
+        carouselContainer.addEventListener('mouseenter', stopAutoplay);
+        carouselContainer.addEventListener('mouseleave', startAutoplay);
+        
+        // Pausa no toque (mobile)
+        carouselContainer.addEventListener('touchstart', stopAutoplay, { passive: true });
+        carouselContainer.addEventListener('touchend', () => {
+            // Delay para reiniciar após interação
+            setTimeout(startAutoplay, 2000);
+        }, { passive: true });
+    }
+
+    // Iniciar autoplay
+    startAutoplay();
+
     // Inicializar
     createDots();
     updateItemsPerView();
