@@ -107,15 +107,62 @@ addListener(menu, 'click', closeMenu);
 addListener(overlay, 'click', closeMenu);
 
 // ==========================================
-// SCROLL REVEAL
+// GSAP & LENIS SETUP (PREMIUM ANIMATIONS)
 // ==========================================
 
-if (typeof ScrollReveal !== 'undefined') {
-    ScrollReveal().reveal('.interface', {
-        duration: 1500,
-        reset: false
-    });
+// Initialize Lenis for smooth scrolling
+const lenis = new Lenis({
+    duration: 1.2,
+    easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+    smooth: true,
+    direction: 'vertical',
+    gestureDirection: 'vertical',
+    smoothTouch: false,
+    touchMultiplier: 2,
+});
+
+function raf(time) {
+    lenis.raf(time);
+    ScrollTrigger.update(); // Sync ScrollTrigger with Lenis
+    requestAnimationFrame(raf);
 }
+
+requestAnimationFrame(raf);
+
+// Register ScrollTrigger
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero Section Animation (Timeline)
+const tl = gsap.timeline({ defaults: { ease: "power4.out", duration: 1.5 } });
+
+// Staggered reveal for Hero Content
+tl.from('.logo', { y: -20, opacity: 0, duration: 1 })
+  .from('.menu-desktop li', { y: -20, opacity: 0, stagger: 0.1 }, "-=0.8")
+  .from('.txt-topo-site h1', { y: 50, opacity: 0, skewY: 5 }, "-=0.5")
+  .from('.txt-topo-site p', { y: 30, opacity: 0 }, "-=1.2")
+  .from('.btn-contato-topo', { scale: 0.8, opacity: 0 }, "-=1.2")
+  .from('.img-topo-site', { x: 100, opacity: 0, duration: 2 }, "-=1.5")
+  .from('.bolhas span', { opacity: 0, duration: 2 }, "-=1.5");
+
+// General Scroll Animations for Sections
+const sections = document.querySelectorAll('.interface');
+
+sections.forEach((section, index) => {
+    // Skip header and hero (already animated by timeline)
+    if (index < 2) return; 
+
+    gsap.from(section, {
+        scrollTrigger: {
+            trigger: section,
+            start: "top 85%", // Starts when top of element is 85% down viewport
+            toggleActions: "play none none reverse"
+        },
+        y: 50,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out"
+    });
+});
 
 // ==========================================
 // BOTÃO VOLTAR AO TOPO
