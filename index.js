@@ -494,3 +494,44 @@ if (imgSobre) {
         }, 800);
     });
 }
+
+// ==========================================
+// HEADER DINÂMICO (INTERATIVIDADE MOUSE/SCROLL)
+// ==========================================
+
+const header = document.querySelector('header');
+let mouseY = 0;
+
+const checkHeaderVisibility = () => {
+    if (!header) return;
+    
+    // Altura da região de ativação (em pixels)
+    const hoverThreshold = 100;
+    
+    // Verifica se está no topo da página
+    const isAtTop = window.scrollY < 50;
+    
+    // Verifica se o mouse está na região superior
+    const isHoveringTop = mouseY < hoverThreshold;
+    
+    // Lógica: Mostrar se estiver no topo da página OU se o mouse estiver na área superior
+    if (isAtTop || isHoveringTop) {
+        header.classList.remove('header-hidden');
+    } else {
+        header.classList.add('header-hidden');
+    }
+};
+
+// Atualiza posição do mouse e verifica visibilidade
+document.addEventListener('mousemove', (e) => {
+    mouseY = e.clientY;
+    checkHeaderVisibility();
+});
+
+// Verifica visibilidade ao rolar a página
+document.addEventListener('scroll', () => {
+    checkHeaderVisibility();
+}, { passive: true });
+
+// Garante que o estado correto seja aplicado ao carregar
+checkHeaderVisibility();

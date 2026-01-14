@@ -346,10 +346,17 @@ header{
     padding: 30px 4%;
     background: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(10px);
-    position: sticky;
+    position: fixed;
+    width: 100%;
     top: 0;
+    left: 0;
     z-index: 9999;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: transform 0.4s ease, background 0.4s ease;
+}
+
+header.header-hidden {
+    transform: translateY(-100%);
 }
 
 header > .interface{
