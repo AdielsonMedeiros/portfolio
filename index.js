@@ -155,7 +155,7 @@ sections.forEach((section, index) => {
         scrollTrigger: {
             trigger: section,
             start: "top 85%", // Starts when top of element is 85% down viewport
-            toggleActions: "play none none reverse"
+            toggleActions: "play none none none" // Anima apenas uma vez, nao reverte
         },
         y: 50,
         opacity: 0,
