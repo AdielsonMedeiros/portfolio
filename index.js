@@ -142,7 +142,8 @@ tl.from('.logo', { y: -20, opacity: 0, duration: 1 })
   .from('.txt-topo-site p', { y: 30, opacity: 0 }, "-=1.2")
   .from('.btn-contato-topo', { scale: 0.8, opacity: 0 }, "-=1.2")
   .from('.img-topo-site', { x: 100, opacity: 0, duration: 2 }, "-=1.5")
-  .from('.bolhas span', { opacity: 0, duration: 2 }, "-=1.5");
+  .from('.bolhas span', { opacity: 0, duration: 2 }, "-=1.5")
+  .from('.astronaut-hands', { opacity: 0, duration: 2.5 }, "-=2.0");
 
 // General Scroll Animations for Sections
 const sections = document.querySelectorAll('.interface');

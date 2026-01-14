@@ -47,6 +47,12 @@ body{
     transition: background-color 0.5s ease, opacity 0.2s ease;
 }
 
+/* Ensure content stays on top of the astronaut hands */
+main section {
+    position: relative;
+    z-index: 20;
+}
+
 /* Transições globais para mudança de tema */
 * {
     transition: color 0.5s ease, background 0.5s ease, border-color 0.5s ease, filter 0.5s ease;
@@ -163,6 +169,38 @@ button, .btn-enviar input[type=submit] {
 }
 
 
+
+/* Astronaut Hands Background - Based on Quasar Landing Page */
+.astronaut-hands {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120vh; /* Increased height to prevent top cut-off */
+    /* max-height removed */
+    transform: translateY(0); 
+    z-index: 0;
+    pointer-events: none;
+    
+    background-image: url(https://cdn.quasar.dev/img/landing-page/astronaut-left-hand.png), url(https://cdn.quasar.dev/img/landing-page/astronaut-right-hand.png);
+    background-size: 60vw, 60vw;
+    /* Adjusted vertical position to lower the right hand slightly */
+    background-position: left bottom, calc(100% + 25px) calc(100% - 12vw);
+    background-repeat: no-repeat, no-repeat;
+    opacity: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .astronaut-hands {
+        background-size: 45vw, 45vw; 
+        background-position: left bottom, calc(100% + 40px) calc(100% - 14vw);
+    }
+}
+
+/* Hide legacy elements if they remain in DOM */
+.astronaut-hand {
+    display: none;
+}
 
 .interface{
     max-width: 1400px;
@@ -1893,4 +1931,11 @@ body.mono-theme .solar .interface p {
     font-family: 'Courier New', monospace;
     letter-spacing: 2px;
     text-transform: uppercase;
+}
+
+/* Footer positioning context for astronaut hands */
+footer {
+    position: relative;
+    z-index: 10;
+    overflow: visible; /* Allow hands to extend upwards */
 }
