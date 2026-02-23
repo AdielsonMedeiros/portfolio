@@ -12,7 +12,7 @@
 .sun {
     height: 120px;
     width: 120px;
-    background-image: url(./img-solar/sol.png);
+    background-image: url(./img-solar/sol.webp);
     border-radius: 50%;
     background-size: cover;
     box-shadow: -4px 2px 56px #f9c05f;
@@ -75,7 +75,7 @@
   .venus {
     height: 40px;
     width: 40px;
-    background-image: url(./img-solar/venus.png);
+    background-image: url(./img-solar/venus.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
@@ -103,7 +103,7 @@
   .earth {
     height: 35px;
     width: 35px;
-    background-image: url(./img-solar/image.png);
+    background-image: url(./img-solar/image.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
@@ -161,7 +161,7 @@
   .mars {
     height: 30px;
     width: 30px;
-    background-image: url(./img-solar/marte.png);
+    background-image: url(./img-solar/marte.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
@@ -189,7 +189,7 @@
   .jupiter {
     height: 40px;
     width: 40px;
-    background-image: url(./img-solar/jupiter.png);
+    background-image: url(./img-solar/jupiter.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
@@ -217,7 +217,7 @@
   .saturn {
     height: 50px;
     width: 50px;
-    background-image: url(./img-solar/saturno.png);
+    background-image: url(./img-solar/saturno.webp);
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
@@ -245,7 +245,7 @@
   .urans {
     height: 30px;
     width: 30px;
-    background-image: url(./img-solar/urano.png);
+    background-image: url(./img-solar/urano.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
@@ -273,7 +273,7 @@
   .neptune {
     height: 30px;
     width: 30px;
-    background-image: url(./img-solar/netuno.png);
+    background-image: url(./img-solar/netuno.webp);
     background-size: 100%;
     border-radius: 50%;
     position: absolute;
