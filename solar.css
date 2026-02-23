@@ -303,7 +303,11 @@
   
   @media screen and (max-width: 1020px) {
     .solar {
-        padding: 200px 4%;
+        padding: 200px 4% 60px;
+    }
+
+    .solar .interface {
+        margin-bottom: 60px;
     }
   
     .sun, .mercury, .venus, .earth,  .mars,  .jupiter,  .saturn,  .urans,  .neptune{
