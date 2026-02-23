@@ -459,7 +459,7 @@ if (imgTopoSite) {
 
     addListener(imgTopoSite, 'mouseenter', () => {
         if (!isImageChanged) {
-            rotateAndChangeImage('img/adielson_medeiros.jpg', 'Adielson Medeiros', 360);
+            rotateAndChangeImage('img/fotonova.jpeg', 'Adielson Medeiros', 360);
         }
     });
 
