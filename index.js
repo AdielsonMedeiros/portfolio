@@ -78,19 +78,8 @@ if (audio && title) loadSong(songList[songIndex]);
 // DOWNLOAD CV
 // ==========================================
 
-const downloadCv = document.querySelector('.btn-contato a');
-addListener(downloadCv, 'click', (event) => {
-    event.preventDefault();
-    fetch('./cv')
-        .then(response => response.blob())
-        .then(blob => {
-            const a = document.createElement("a");
-            a.href = URL.createObjectURL(blob);
-            a.download = "Adielson_CV.pdf";
-            a.click();
-            URL.revokeObjectURL(a.href);
-        });
-});
+// O link de CV agora é tratado diretamente no HTML via WhatsApp para maior segurança.
+
 
 // ==========================================
 // MENU MOBILE
